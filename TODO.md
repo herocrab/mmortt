@@ -1,7 +1,8 @@
 ### Successful MVP
 ---
 
-- [ ] Setup Godot 4.4 and VSCODE Integration
+- [ ] Setup Godot 4.4 and vsode Integration
+  - [ ] Per Godot 4.4 docs, follow explicitly
 - [ ] Ability to launch multiple scenes indepedently
   - [ ] Support debugging of multiple apps running at the same time
     - [ ] (1) server
