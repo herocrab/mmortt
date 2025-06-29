@@ -7,6 +7,11 @@
   - [ ] Support debugging of multiple apps running at the same time
     - [ ] (1) server
     - [ ] (2) clients
+- [ ] Server loads map data, which will include collisions, and depics blocked tiles
+  - [ ] Map is initialized from data referencing map name
+  - [ ] Map name includes a scene which auto populates objstructions or blocks
+  - [ ] Map terrain/background is simple gray
+  - [ ] Obstructions or blocks are black
 - [ ] Server init from data file with params needed for Nakama
 - [ ] Server registers game with Nakama, as authoritative server host
 - [ ] Client init from data file
@@ -19,6 +24,7 @@
 - [ ] Prodution ready RTS boxing and clicking selection system
 - [ ] Client can send unit movement input, server receives and places into a tick for streaming
 - [ ] Client movement utilizes deterministic A* integry based Grid
+  - [ ] Added SGPhysics2D GDExtension for Fixed Math library
 - [ ] Client can issue group formation movements
 - [ ] Client uses collision avoidance using tile blocked checking
 - [ ] Initial loadout is just square units
