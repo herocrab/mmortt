@@ -13,6 +13,7 @@
   - [ ] Map terrain/background is simple gray
   - [ ] Obstructions or blocks are black
 - [ ] Server init from data file with params needed for Nakama
+  - [ ] Server is graphical only and does not have any presentation layer, only command line
 - [ ] Server registers game with Nakama, as authoritative server host
 - [ ] Client init from data file
 - [ ] Client connects to Nakama, joins server by default (via param in init file)
@@ -24,7 +25,7 @@
 - [ ] Prodution ready RTS boxing and clicking selection system
 - [ ] Client can send unit movement input, server receives and places into a tick for streaming
 - [ ] Client movement utilizes deterministic A* integry based Grid
-  - [ ] Added SGPhysics2D GDExtension for Fixed Math library
+  - [x] Added SGPhysics2D GDExtension for Fixed Math library
 - [ ] Client can issue group formation movements
 - [ ] Client uses collision avoidance using tile blocked checking
 - [ ] Initial loadout is just square units
@@ -43,4 +44,5 @@
 ---
 - 2D
 - GDScript
+- Use as many engine native facilities as possible (logging, debug, etc)
 
