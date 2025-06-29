@@ -27,12 +27,12 @@
 - [ ] Start designing the actual core gameplay loop (based on EON and Shattered Galaxy)
 - [ ] The unit selection/build client can be separate from the game client, their can be a secure exchange between the two using token auth on teh server
 
-Tech Stack:
+### Tech Stack:
 ---
 - GODOT
 - Nakama
 
-Technical Design Constraints:
+### Technical Design Constraints:
 ---
 - 2D
 - GDScript
