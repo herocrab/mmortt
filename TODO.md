@@ -1,6 +1,7 @@
-### Successful MVP
+### MVP Success
 ---
 
+- [ ] Move icon and import file into separate folder for resources, in repo, in assets/image folder, move in editor
 - [ ] Setup Godot 4.4 and vsode Integration
   - [ ] Per Godot 4.4 docs, follow explicitly
 - [ ] Ability to launch multiple scenes indepedently
@@ -35,14 +36,16 @@
 - [ ] Start designing the actual core gameplay loop (based on EON and Shattered Galaxy)
 - [ ] The unit selection/build client can be separate from the game client, their can be a secure exchange between the two using token auth on teh server
 
-### Tech Stack:
+### MVP Tech Stack:
 ---
 - GODOT
+- SGPhysics2D
 - Nakama
 
-### Technical Design Constraints:
+### MVP Technical Design Constraints:
 ---
 - 2D
 - Engine Native (logging, debug, etc)
 - No UI
+- No Unit design, top-down or isometric, just block
 
