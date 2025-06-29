@@ -43,6 +43,6 @@
 ### Technical Design Constraints:
 ---
 - 2D
-- GDScript
-- Use as many engine native facilities as possible (logging, debug, etc)
+- Engine Native (logging, debug, etc)
+- No UI
 
