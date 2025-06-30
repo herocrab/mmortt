@@ -11,8 +11,27 @@
     - This can be accomoplished by building the app, and running multiple instances with debug flags
     - Further, ports and launch parameters can be added as command-line arguments
 - [x] Native logging facilities to file for client + server
+  - [x] Uses Logger.write() in a singleton and writes to /log/
+- [x] Server is initialize cli with necessary game parameters
+  - [x] Add more robust arg parsing with defaults to Launcher.gd
+    - [x] Map
+    - [x] Number of players per team
+    - [x] Number of teams
+- [x] Find a state machine for Godot that you like
+  - [ ] Using the Finite State Machine plugin for Godot 4
+- [ ] Create a server network state machine
+  - [ ] Lobby
+  - [ ] Simulation
+  - [ ] Conclusion
 - [ ] Server registers game with Nakama, as authoritative server host
-- [ ] Server sends itself a command to load the map
+  - All necessary server parameters (map, players, and teams, network state machine) are posted as metadata
+  - Use relay model
+  - Clients only send to the server, which should be the first client connected
+  - Clients need to drop anything not from the server
+  - The server will always be the first client connected, because it is the only one that can create rooms
+- [ ] Display Room ID, Latency, Metadata as visible in Nakama on server UI
+  - [ ] Gated at a lower frequency
+- [ ] Server handles moving between states, perhaps based on a timer initially
 - [ ] Server loads map data, which will include collisions, and depics blocked tiles
   - [ ] Map is initialized from data referencing map name
   - [ ] Map name includes a scene which auto populates objstructions or blocks
@@ -21,6 +40,11 @@
 - [ ] Server init from data file with params needed for Nakama
   - [ ] Server is graphical only and does not have any presentation layer, only command line
 - [ ] Client init from data file
+- [ ] Create a client network state machine
+  - [ ] Lobby
+  - [ ] Joining
+  - [ ] Simulation
+  - [ ] Conclusion
 - [ ] Client connects to Nakama, joins server by default (via param in init file)
 - [ ] Client specifies it's unit selection and loadout on join
 - [ ] Server validates client join message is within rule limits (this can later be token auth)

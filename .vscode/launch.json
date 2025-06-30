@@ -10,7 +10,7 @@
             "debug_collisions": false,
             "debug_paths": false,
             "debug_navigation": false,
-            "additional_options": "--server",
+            "additional_options": "--server --players_per_team=10 --number_of_teams=2",
         },
         {
             "name": "Client",
