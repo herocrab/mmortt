@@ -1,13 +1,18 @@
 ### MVP Success
 ---
 
-- [ ] Move icon and import file into separate folder for resources, in repo, in assets/image folder, move in editor
-- [ ] Setup Godot 4.4 and vsode Integration
-  - [ ] Per Godot 4.4 docs, follow explicitly
-- [ ] Ability to launch multiple scenes indepedently
-  - [ ] Support debugging of multiple apps running at the same time
-    - [ ] (1) server
-    - [ ] (2) clients
+- [x] Icon resourced moved to /assets/images
+- [x] Setup Godot 4.4 and vsode integration
+- [x] Ability to launch multiple scenes indepedently
+  - [x] Debugging of multiple instances of the app for network and multiplayer
+    - [x] (1) server
+    - [x] (2) clients
+    - This can be accomplished by running multiple instances of the editor
+    - This can be accomoplished by building the app, and running multiple instances with debug flags
+    - Further, ports and launch parameters can be added as command-line arguments
+- [x] Native logging facilities to file for client + server
+- [ ] Server registers game with Nakama, as authoritative server host
+- [ ] Server sends itself a command to load the map
 - [ ] Server loads map data, which will include collisions, and depics blocked tiles
   - [ ] Map is initialized from data referencing map name
   - [ ] Map name includes a scene which auto populates objstructions or blocks
@@ -15,7 +20,6 @@
   - [ ] Obstructions or blocks are black
 - [ ] Server init from data file with params needed for Nakama
   - [ ] Server is graphical only and does not have any presentation layer, only command line
-- [ ] Server registers game with Nakama, as authoritative server host
 - [ ] Client init from data file
 - [ ] Client connects to Nakama, joins server by default (via param in init file)
 - [ ] Client specifies it's unit selection and loadout on join

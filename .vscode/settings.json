@@ -1,3 +1,7 @@
 {
-    "godotTools.editorPath.godot4": "c:\\Users\\jerem\\Desktop\\Dev\\Godot_v4.4.1-stable_win64.exe\\Godot_v4.4.1-stable_win64.exe"
+    "godotTools.editorPath.godot4": "c:\\Users\\jerem\\Desktop\\Dev\\Godot_v4.4.1-stable_win64.exe\\Godot_v4.4.1-stable_win64.exe",
+    "files.exclude": {
+    "**/*.gd.uid": true
+    },
+    "files.eol": "\n"
 }

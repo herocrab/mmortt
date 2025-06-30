@@ -11,5 +11,11 @@ config_version=5
 [application]
 
 config/name="mmortt"
+run/main_scene="uid://dajdkdffm7njm"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/images/icon.svg"
+
+[autoload]
+
+Launcher="*res://src/launcher.gd"
+Logger="*res://src/logger.gd"
