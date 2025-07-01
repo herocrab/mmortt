@@ -1,5 +1,3 @@
-extends StateMachineState
+extends NetworkState
 
 class_name Conclude
-
-@export var next_state: StateMachineState

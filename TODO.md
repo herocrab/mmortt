@@ -45,12 +45,13 @@
     - [x] Create a match
     - [x] Convert the current system to use the Finite State Machine
       - [x] Rename all the states per the items identified below
-    - [ ] Add a timeout message if the client is not connecting, if Nakama cannot be reached
+    - [x] Add a timeout message if the client is not connecting, if Nakama cannot be reached
+    - [ ] Client joining
     - [ ] The server will need a callback to tell the hosts that it is the host after they join. You can do this with opcodes and metadata.
     - [ ] The client will then need to cache the host and aknowledge it.
   - [ ] Client
-    - [ ] Sending to a specific host (the server)
-  - [ ] Created automatically refreshing token
+    - [ ] Cache server so that the client is sending to a specific host (the server)
+  - [x] Created automatically refreshing token
 ---
 
 

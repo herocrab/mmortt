@@ -1,5 +1,3 @@
-extends StateMachineState
+extends NetworkState
 
 class_name Join
-
-@export var next_state: StateMachineState

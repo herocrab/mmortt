@@ -1,5 +1,3 @@
-extends StateMachineState
+extends NetworkState
 
 class_name Sync
-
-@export var next_state: StateMachineState

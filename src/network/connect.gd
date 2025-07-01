@@ -1,4 +1,4 @@
-extends StateMachineState
+extends NetworkState
 
 class_name Connect
 
@@ -6,7 +6,6 @@ class_name Connect
 @export var nakama_service_ip: String = "127.0.0.1"
 @export var nakama_service_port: int = 7350
 @export var nakama_protocol: String = "http"
-@export var next_state: StateMachineState
 
 var _refresh_interval: int = 600
 var _refresh_timer: Timer
@@ -40,20 +39,24 @@ func _connect_to_nakama():
 	Host.client = Nakama.create_client(key, nakama_service_ip, nakama_service_port, nakama_protocol, false, 0) #disable chatting logging
 	Host.session = await Host.client.authenticate_device_async(Host.device_id)
 
-	if Host.session.expired:
-		Logger.write("INFO", "Nakama client session is expired, attempting to re-authenticate.")
-		_reauthenticate_nakama()
+	if Host.session is NakamaSession:
+		if Host.session.expired:
+			Logger.write("INFO", "Nakama client session is expired, attempting to re-authenticate.")
+			_reauthenticate_nakama()
 
-	if Host.session.is_valid():
-		Logger.write("INFO", "Nakama client has authenticated successfully.")
-		Host.socket = Nakama.create_socket_from(Host.client)
-		await Host.socket.connect_async(Host.session)
+		if Host.session.is_valid():
+			Logger.write("INFO", "Nakama client has authenticated successfully.")
+			Host.socket = Nakama.create_socket_from(Host.client)
+			await Host.socket.connect_async(Host.session)
 
-		if Host.socket.is_connected_to_host():
-			Logger.write("INFO", "Nakama socket connected to real-time server.")
-			var state_machine = get_state_machine()
-			state_machine.current_state = next_state
+			if Host.socket.is_connected_to_host():
+				Logger.write("INFO", "Nakama socket connected to real-time server.")
+				var state_machine = get_state_machine()
+				state_machine.current_state = next_state
+			else:
+				Logger.write("ERROR", "Nakama socket failed to connect to real-time server.")
 		else:
-			Logger.write("ERROR", "Nakama socket failed to connect to real-time server.")
+			Logger.write("ERROR", "Nakama client has failed to authenticate.")
 	else:
-		Logger.write("ERROR", "Nakama client has failed to authenticate.")
+		Logger.write("ERROR", "Nakama client has failed to connect.")
+

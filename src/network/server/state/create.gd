@@ -1,9 +1,8 @@
-extends StateMachineState
+extends NetworkState
 
 class_name Create
 
 @export var match_name: String = "default"
-@export var next_state: StateMachineState
 
 var _socket: NakamaSocket
 var _match: NakamaRTAPI.Match
