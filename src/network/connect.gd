@@ -31,8 +31,9 @@ func _reauthenticate_nakama() -> void:
 		Logger.write("ERROR", "Nakama client not able to re-authenticate.")
 
 func _exit_tree() -> void:
-	Host.client.session_logout_async(Host.session)
-	Logger.write("INFO", "Nakama client session is logging out.")
+	if Host.client != null and Host.session != null:
+		Host.client.session_logout_async(Host.session)
+		Logger.write("INFO", "Nakama client session is logging out.")
 
 func _connect_to_nakama():
 	Host.device_id = OS.get_unique_id()

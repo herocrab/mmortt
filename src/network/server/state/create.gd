@@ -1,6 +1,6 @@
 extends StateMachineState
 
-class_name ServerCreate
+class_name Create
 
 @export var match_name: String = "default"
 @export var next_state: StateMachineState

@@ -23,13 +23,29 @@
   - [x] Bring up Docker infra
   - [x] Login and browse around
   - [x] To change the defauld admin password I needed a config.yml
+---
+- [x] Create a server network state machine
+  - [x] Connect
+  - [x] Create
+  - [x] Lobby
+  - [x] Simulate
+  - [x] Conclude
+  - [x] Restart
 
+- [x] Create a client network state machine
+  - [x] Connect
+  - [x] Select
+  - [x] Join
+  - [x] Sync
+  - [x] Play
+  - [x] Results
 ---
 - [x] Basic Nakama connection from server
   - [x] Server
     - [x] Create a match
     - [x] Convert the current system to use the Finite State Machine
-      - [ ] Rename all the states per the items identified below
+      - [x] Rename all the states per the items identified below
+    - [ ] Add a timeout message if the client is not connecting, if Nakama cannot be reached
     - [ ] The server will need a callback to tell the hosts that it is the host after they join. You can do this with opcodes and metadata.
     - [ ] The client will then need to cache the host and aknowledge it.
   - [ ] Client
@@ -37,21 +53,7 @@
   - [ ] Created automatically refreshing token
 ---
 
-- [ ] Create a server network state machine
-  - [ ] Connect
-  - [ ] Create
-  - [ ] Lobby
-  - [ ] Simulate
-  - [ ] Conclude
-  - [ ] Restart
 
-- [ ] Create a client network state machine
-  - [ ] Connect
-  - [ ] Select
-  - [ ] Join
-  - [ ] Sync
-  - [ ] Play
-  - [ ] Results
 
 - [ ] Server registers game with Nakama, as authoritative server host
   - All necessary server parameters (map, players, and teams, network state machine) are posted as metadata
@@ -67,9 +69,15 @@
   - [ ] Map name includes a scene which auto populates objstructions or blocks
   - [ ] Map terrain/background is simple gray
   - [ ] Obstructions or blocks are black
-  - [ ] Use NavigationSever2D with Quantized Input for determinism
-  - [ ] Quantize all waypoints to eliminate further possibility of determinism
-
+  - [ ] Use NavigationServer2D on the server to identify a path
+    - [ ] Convert this path to Grid coordinates (cast to grid), as small as you can go
+    - [ ] Find a solution for deterministic group navigation based on this
+      - [ ] Use a walkable not-walkable grid map, to resolve destinations
+      - [ ] You will need to re-parse the group nav order into inividual unit orders
+      - [ ] and the source and destination accordingly all based on Simulation position
+      - [ ] You should never reference the units world or float-based position
+    - [ ] The server specifies all pathing, nothing is required on the client
+  - [ ] Use Simulated Collision Avoidance with units on a tether/pushing/lerping
 
 
 - [ ] Client connects to Nakama, joins server by default (via param in init file)
