@@ -19,34 +19,39 @@
     - [x] Number of teams
 - [x] Find a state machine for Godot that you like
   - [x] Using the Finite State Machine plugin for Godot 4
-
 - [x] Getting started with Nakama
   - [x] Bring up Docker infra
   - [x] Login and browse around
   - [x] To change the defauld admin password I needed a config.yml
 
+---
 - [x] Basic Nakama connection from server
   - [x] Server
     - [x] Create a match
+    - [x] Convert the current system to use the Finite State Machine
+      - [ ] Rename all the states per the items identified below
     - [ ] The server will need a callback to tell the hosts that it is the host after they join. You can do this with opcodes and metadata.
     - [ ] The client will then need to cache the host and aknowledge it.
   - [ ] Client
     - [ ] Sending to a specific host (the server)
   - [ ] Created automatically refreshing token
+---
 
 - [ ] Create a server network state machine
   - [ ] Connect
-    - [ ] Establish connection to Nakama
+  - [ ] Create
   - [ ] Lobby
-    - [ ] Upload the match metadata to Nakama
-    - [ ] Load the map scene and populate all necessary tuff
-    - [ ] Wait a duration to allow for joining
   - [ ] Simulate
-    - [ ] Run the network simulation
-    - [ ] Use a separte thread for live joiners
   - [ ] Conclude
-    - [ ] Show the score conclusion
   - [ ] Restart
+
+- [ ] Create a client network state machine
+  - [ ] Connect
+  - [ ] Select
+  - [ ] Join
+  - [ ] Sync
+  - [ ] Play
+  - [ ] Results
 
 - [ ] Server registers game with Nakama, as authoritative server host
   - All necessary server parameters (map, players, and teams, network state machine) are posted as metadata
@@ -65,14 +70,7 @@
   - [ ] Use NavigationSever2D with Quantized Input for determinism
   - [ ] Quantize all waypoints to eliminate further possibility of determinism
 
-- [ ] Create a client network state machine
-  - [ ] Connect
-  - [ ] Lobby
-    - [ ] Player will select their loadout
-  - [ ] Join
-  - [ ] Sync
-  - [ ] Simulate
-  - [ ] Conclude
+
 
 - [ ] Client connects to Nakama, joins server by default (via param in init file)
 - [ ] Client specifies it's unit selection and loadout on join

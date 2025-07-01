@@ -139,7 +139,7 @@ static func restore_session(auth_token : String):
 	return NakamaSession.new(auth_token, false)
 
 func _to_string():
-	return "Client(Host='%s', Port=%s, Scheme='%s', ServerKey='%s', Timeout=%s)" % [
+	return "Client(HostStateMachine='%s', Port=%s, Scheme='%s', ServerKey='%s', Timeout=%s)" % [
 		host, port, scheme, server_key, timeout
 	]
 

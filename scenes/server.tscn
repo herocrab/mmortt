@@ -1,11 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://8ex7t3ifxd2n"]
+[gd_scene load_steps=5 format=3 uid="uid://8ex7t3ifxd2n"]
 
-[ext_resource type="Script" uid="uid://jhnhedx44gk2" path="res://src/lockstep/server/server.gd" id="1_m3u1i"]
+[ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="1_6bwch"]
+[ext_resource type="Script" uid="uid://c64macdydqsqj" path="res://src/utility/initital_state.gd" id="2_3iytc"]
+[ext_resource type="Script" uid="uid://cyeeho0hk1egu" path="res://src/network/server/state/server_create.gd" id="3_3iytc"]
+[ext_resource type="Script" uid="uid://c2705tma4amkj" path="res://src/network/connect.gd" id="3_yw53h"]
 
-[node name="Server" type="Node2D"]
-script = ExtResource("1_m3u1i")
+[node name="Server" type="Node" node_paths=PackedStringArray("current_state")]
+script = ExtResource("1_6bwch")
+current_state = NodePath("InitialState")
+metadata/_custom_type_script = "uid://dwqv65m8ieqgg"
+
+[node name="InitialState" type="Node" parent="." node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_3iytc")
+next_state = NodePath("../Connect")
+metadata/_custom_type_script = "uid://c64macdydqsqj"
+
+[node name="Connect" type="Node" parent="." node_paths=PackedStringArray("next_state")]
+script = ExtResource("3_yw53h")
+next_state = NodePath("../ServerCreate")
+
+[node name="ServerCreate" type="Node" parent="."]
+script = ExtResource("3_3iytc")
+metadata/_custom_type_script = "uid://cyeeho0hk1egu"
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
+offset_right = 100.0
 offset_bottom = 23.0
 text = "Server Scene"
