@@ -46,27 +46,34 @@
     - [x] Convert the current system to use the Finite State Machine
       - [x] Rename all the states per the items identified below
     - [x] Add a timeout message if the client is not connecting, if Nakama cannot be reached
-    - [ ] Client joining
-    - [ ] The server will need a callback to tell the hosts that it is the host after they join. You can do this with opcodes and metadata.
-    - [ ] The client will then need to cache the host and aknowledge it.
-  - [ ] Client
-    - [ ] Cache server so that the client is sending to a specific host (the server)
-  - [x] Created automatically refreshing token
 ---
-
-
-
-- [ ] Server registers game with Nakama, as authoritative server host
+- [x] Server registers game with Nakama, as authoritative server host
   - All necessary server parameters (map, players, and teams, network state machine) are posted as metadata
   - Use relay model
   - Clients only send to the server, which should be the first client connected
   - Clients need to drop anything not from the server
   - The server will always be the first client connected, because it is the only one that can create rooms
+---
+    - [ ] Client
+      - [ ] Connect
+      - [ ] Select
+      - [ ] Join
+    - [ ] The server will need a callback to tell the hosts that it is the host after they join.
+    - [ ] The client will then need to cache the host and aknowledge it.
+  - [ ] Client
+    - [ ] Cache server so that the client is sending to a specific host (the server) and not broadcasting
+  - [x] Created automatically refreshing token
+---
+- [ ] Client connects to Nakama, joins server by default (via param in init file)
+- [ ] Client specifies it's unit selection and loadout on join, in lobby phase
+- [ ] Server validates client join message is within rule limits (this can later be token auth)
+- [ ] Before simulation the map is loaded on both sides, may need to use a "start message" with op codes.
+---
 
-- [ ] Display Room ID, Latency, Metadata as visible in Nakama on server UI
-  - [ ] Gated at a lower frequency
+At this point the client and server should have bi-directional communication using opcodes
 
-- [ ] Server loads map data
+---
+- [ ] Server loads map
   - [ ] Map name includes a scene which auto populates objstructions or blocks
   - [ ] Map terrain/background is simple gray
   - [ ] Obstructions or blocks are black
@@ -80,15 +87,11 @@
     - [ ] The server specifies all pathing, nothing is required on the client
   - [ ] Use Simulated Collision Avoidance with units on a tether/pushing/lerping
 
-
-- [ ] Client connects to Nakama, joins server by default (via param in init file)
-- [ ] Client specifies it's unit selection and loadout on join
-- [ ] Server validates client join message is within rule limits (this can later be token auth)
-
 - [ ] Client can join in-progress, receiving a full state transfer and delta of input tickets
   - [ ] Full state capture will be done on server every N time
   - [ ] Live joining will send the last X number of ticks from full-state to current
   - [ ] Client tick number will be stored on the server, it will be set artificially behind, perhaps this could be negotiated or acked
+  - [ ] Use a separate thread to accomodate joining
 
 - [ ] Client speeds-up to be in lockstep with server simulation
 - [ ] Client sends input only, validated by server and replicated to other clients
@@ -112,6 +115,7 @@
 - GODOT
 - SGPhysics2D
 - Nakama
+- FSM Plugin
 
 ### MVP Technical Design Constraints:
 ---
