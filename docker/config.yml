@@ -1,0 +1,4 @@
+console:
+  enabled: true
+  username: "admin"
+  password: "herocrab123"

@@ -18,16 +18,16 @@ func _ready():
 	_log_parameters()
 	call_deferred("_change_scene")
 
-func _initialize_logger():
+func _initialize_logger() -> void:
 	Logger.initialize()
 
-func _log_parameters():
+func _log_parameters() -> void:
 	Logger.write("INFO", "Server: " + str(parameters["server"]) + ".")
 	Logger.write("INFO", "Map: " + parameters["map"] + ".")
 	Logger.write("INFO", "Players per team: " + str(parameters["players_per_team"]) + ".")
 	Logger.write("INFO", "Number of teams: " + str(parameters["number_of_teams"]) + ".")
 
-func _parse_args():
+func _parse_args() -> Dictionary:
 	var args = OS.get_cmdline_args()
 	for arg in args:
 		if arg.begins_with("--"):
@@ -42,7 +42,7 @@ func _parse_args():
 			parameters[key] = defaults[key]
 	return parameters
 
-func _change_scene():
+func _change_scene() -> void:
 	var _next_scene: PackedScene
 	if parameters["server"]:
 		_next_scene = load(_server_scene_path)

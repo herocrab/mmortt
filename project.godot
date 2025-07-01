@@ -19,3 +19,4 @@ config/icon="res://assets/images/icon.svg"
 
 Launcher="*res://src/launcher.gd"
 Logger="*res://src/logger.gd"
+Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"

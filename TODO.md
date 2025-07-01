@@ -18,51 +18,87 @@
     - [x] Number of players per team
     - [x] Number of teams
 - [x] Find a state machine for Godot that you like
-  - [ ] Using the Finite State Machine plugin for Godot 4
+  - [x] Using the Finite State Machine plugin for Godot 4
+
+- [x] Getting started with Nakama
+  - [x] Bring up Docker infra
+  - [x] Login and browse around
+  - [x] To change the defauld admin password I needed a config.yml
+
+- [x] Basic Nakama connection from server
+  - [x] Server
+    - [x] Create a match
+    - [ ] The server will need a callback to tell the hosts that it is the host after they join. You can do this with opcodes and metadata.
+    - [ ] The client will then need to cache the host and aknowledge it.
+  - [ ] Client
+    - [ ] Sending to a specific host (the server)
+  - [ ] Created automatically refreshing token
+
 - [ ] Create a server network state machine
+  - [ ] Connect
+    - [ ] Establish connection to Nakama
   - [ ] Lobby
-  - [ ] Simulation
-  - [ ] Conclusion
+    - [ ] Upload the match metadata to Nakama
+    - [ ] Load the map scene and populate all necessary tuff
+    - [ ] Wait a duration to allow for joining
+  - [ ] Simulate
+    - [ ] Run the network simulation
+    - [ ] Use a separte thread for live joiners
+  - [ ] Conclude
+    - [ ] Show the score conclusion
+  - [ ] Restart
+
 - [ ] Server registers game with Nakama, as authoritative server host
   - All necessary server parameters (map, players, and teams, network state machine) are posted as metadata
   - Use relay model
   - Clients only send to the server, which should be the first client connected
   - Clients need to drop anything not from the server
   - The server will always be the first client connected, because it is the only one that can create rooms
+
 - [ ] Display Room ID, Latency, Metadata as visible in Nakama on server UI
   - [ ] Gated at a lower frequency
-- [ ] Server handles moving between states, perhaps based on a timer initially
-- [ ] Server loads map data, which will include collisions, and depics blocked tiles
-  - [ ] Map is initialized from data referencing map name
+
+- [ ] Server loads map data
   - [ ] Map name includes a scene which auto populates objstructions or blocks
   - [ ] Map terrain/background is simple gray
   - [ ] Obstructions or blocks are black
-- [ ] Server init from data file with params needed for Nakama
-  - [ ] Server is graphical only and does not have any presentation layer, only command line
-- [ ] Client init from data file
+  - [ ] Use NavigationSever2D with Quantized Input for determinism
+  - [ ] Quantize all waypoints to eliminate further possibility of determinism
+
 - [ ] Create a client network state machine
+  - [ ] Connect
   - [ ] Lobby
-  - [ ] Joining
-  - [ ] Simulation
-  - [ ] Conclusion
+    - [ ] Player will select their loadout
+  - [ ] Join
+  - [ ] Sync
+  - [ ] Simulate
+  - [ ] Conclude
+
 - [ ] Client connects to Nakama, joins server by default (via param in init file)
 - [ ] Client specifies it's unit selection and loadout on join
 - [ ] Server validates client join message is within rule limits (this can later be token auth)
+
 - [ ] Client can join in-progress, receiving a full state transfer and delta of input tickets
+  - [ ] Full state capture will be done on server every N time
+  - [ ] Live joining will send the last X number of ticks from full-state to current
+  - [ ] Client tick number will be stored on the server, it will be set artificially behind, perhaps this could be negotiated or acked
+
 - [ ] Client speeds-up to be in lockstep with server simulation
 - [ ] Client sends input only, validated by server and replicated to other clients
 - [ ] Prodution ready RTS boxing and clicking selection system
 - [ ] Client can send unit movement input, server receives and places into a tick for streaming
-- [ ] Client movement utilizes deterministic A* integry based Grid
+- [ ] Client issues orders, once client receives orders back it uses NavigationServer2D with quantized input
   - [x] Added SGPhysics2D GDExtension for Fixed Math library
+
 - [ ] Client can issue group formation movements
-- [ ] Client uses collision avoidance using tile blocked checking
+- [ ] Client and Server have collisions turned off
+- [ ] Implement unit rendering offset rubber band on a swivel approach for rendering
 - [ ] Initial loadout is just square units
 - [ ] Collision data for map is read from simple bit-map file, each pixel representing a tile blocking state
 - [ ] Client and Server exchange tick hashing to determine if the state is sychronized lockstep simulation
 ---
 - [ ] Start designing the actual core gameplay loop (based on EON and Shattered Galaxy)
-- [ ] The unit selection/build client can be separate from the game client, their can be a secure exchange between the two using token auth on teh server
+- [ ] The unit selection/build client can be separate from the game client, their can be a secure exchange between the two using token auth on the server
 
 ### MVP Tech Stack:
 ---
@@ -77,3 +113,7 @@
 - No UI
 - No Unit design, top-down or isometric, just block
 
+### Future Graphic Design
+- Simple Block Bench models/ Units
+- Simple terrain
+- 3D to Isometric 2D Pipeline
