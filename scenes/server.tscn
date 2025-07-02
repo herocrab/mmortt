@@ -5,21 +5,23 @@
 [ext_resource type="Script" uid="uid://566qu3c8cko0" path="res://src/network/server/state/create.gd" id="3_3iytc"]
 [ext_resource type="Script" uid="uid://c2705tma4amkj" path="res://src/network/connect.gd" id="3_yw53h"]
 
-[node name="Server" type="Node" node_paths=PackedStringArray("current_state")]
+[node name="Server" type="Node3D"]
+
+[node name="ServerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("1_6bwch")
 current_state = NodePath("Initial")
 metadata/_custom_type_script = "uid://dwqv65m8ieqgg"
 
-[node name="Initial" type="Node" parent="." node_paths=PackedStringArray("next_state")]
+[node name="Initial" type="Node" parent="ServerStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("2_3iytc")
 next_state = NodePath("../Connect")
 metadata/_custom_type_script = "uid://c64macdydqsqj"
 
-[node name="Connect" type="Node" parent="." node_paths=PackedStringArray("next_state")]
+[node name="Connect" type="Node" parent="ServerStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("3_yw53h")
 next_state = NodePath("../Create")
 
-[node name="Create" type="Node" parent="."]
+[node name="Create" type="Node" parent="ServerStateMachine"]
 script = ExtResource("3_3iytc")
 
 [node name="Label" type="Label" parent="."]

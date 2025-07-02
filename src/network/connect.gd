@@ -27,7 +27,7 @@ func _reauthenticate_nakama() -> void:
 	Host.session = await Host.client.session_refresh_async(Host.session)
 	if Host.session.is_exception():
 		Host.session = await Host.client.authenticate_device_async(Host.device_id)
-		Logger.write("ERROR", "Nakama client not able to re-authenticate.")
+		Logger.write("ERROR", "Nakama client has failed to connect.")
 
 func _exit_tree() -> void:
 	if Host.client != null and Host.session != null:

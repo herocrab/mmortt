@@ -1,6 +1,12 @@
-[gd_scene format=3 uid="uid://qtfa2jeyt6ig"]
+[gd_scene load_steps=2 format=3 uid="uid://qtfa2jeyt6ig"]
 
-[node name="Client" type="Node2D"]
+[ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="1_5f806"]
+
+[node name="Client" type="Node3D"]
+
+[node name="ClientStateMachine" type="Node" parent="."]
+script = ExtResource("1_5f806")
+metadata/_custom_type_script = "uid://dwqv65m8ieqgg"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
