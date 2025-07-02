@@ -1,130 +1,32 @@
-### MVP Success
----
+### Network States
 
-- [x] Icon resourced moved to /assets/images
-- [x] Setup Godot 4.4 and vsode integration
-- [x] Ability to launch multiple scenes indepedently
-  - [x] Debugging of multiple instances of the app for network and multiplayer
-    - [x] (1) server
-    - [x] (2) clients
-    - This can be accomplished by running multiple instances of the editor
-    - This can be accomoplished by building the app, and running multiple instances with debug flags
-    - Further, ports and launch parameters can be added as command-line arguments
-- [x] Native logging facilities to file for client + server
-  - [x] Uses Logger.write() in a singleton and writes to /log/
-- [x] Server is initialize cli with necessary game parameters
-  - [x] Add more robust arg parsing with defaults to Launcher.gd
-    - [x] Map
-    - [x] Number of players per team
-    - [x] Number of teams
-- [x] Find a state machine for Godot that you like
-  - [x] Using the Finite State Machine plugin for Godot 4
-- [x] Getting started with Nakama
-  - [x] Bring up Docker infra
-  - [x] Login and browse around
-  - [x] To change the defauld admin password I needed a config.yml
----
-- [x] Create a server network state machine
-  - [x] Connect
-  - [x] Create
-  - [x] Lobby
-  - [x] Simulate
-  - [x] Conclude
-  - [x] Restart
+#### Server
+1. Connect
+2. Create
+3. Simulate
+   1. Needs to facilitate live join
+   2. Use a smaller state machine instance to track each client through scenes
+   3. You can copy the state to a thread using deep(true) and await the function, this can just be done for a client joining
+   4. AI should still be controlled by simulation on each client
+4. Conclude
 
-- [x] Create a client network state machine
-  - [x] Connect
-  - [x] Select
-  - [x] Join
-  - [x] Sync
-  - [x] Play
-  - [x] Results
----
-- [x] Basic Nakama connection from server
-  - [x] Server
-    - [x] Create a match
-    - [x] Convert the current system to use the Finite State Machine
-      - [x] Rename all the states per the items identified below
-    - [x] Add a timeout message if the client is not connecting, if Nakama cannot be reached
----
-- [x] Server registers game with Nakama, as authoritative server host
-  - All necessary server parameters (map, players, and teams, network state machine) are posted as metadata
-  - Use relay model
-  - Clients only send to the server, which should be the first client connected
-  - Clients need to drop anything not from the server
-  - The server will always be the first client connected, because it is the only one that can create rooms
----
-    - [ ] Client
-      - [ ] Connect
-      - [ ] Select
-      - [ ] Join
-    - [ ] The server will need a callback to tell the hosts that it is the host after they join.
-    - [ ] The client will then need to cache the host and aknowledge it.
-  - [ ] Client
-    - [ ] Cache server so that the client is sending to a specific host (the server) and not broadcasting
-  - [x] Created automatically refreshing token
----
-- [ ] Client connects to Nakama, joins server by default (via param in init file)
-- [ ] Client specifies it's unit selection and loadout on join, in lobby phase
-- [ ] Server validates client join message is within rule limits (this can later be token auth)
-- [ ] Before simulation the map is loaded on both sides, may need to use a "start message" with op codes.
----
+I need a smaller state machine scene instance, that gets created to faciliate live join for each client.
 
-At this point the client and server should have bi-directional communication using opcodes
-
----
-- [ ] Server loads map
-  - [ ] Map name includes a scene which auto populates objstructions or blocks
-  - [ ] Map terrain/background is simple gray
-  - [ ] Obstructions or blocks are black
-  - [ ] Use NavigationServer2D on the server to identify a path
-    - [ ] Convert this path to Grid coordinates (cast to grid), as small as you can go
-    - [ ] Find a solution for deterministic group navigation based on this
-      - [ ] Use a walkable not-walkable grid map, to resolve destinations
-      - [ ] You will need to re-parse the group nav order into inividual unit orders
-      - [ ] and the source and destination accordingly all based on Simulation position
-      - [ ] You should never reference the units world or float-based position
-    - [ ] The server specifies all pathing, nothing is required on the client
-  - [ ] Use Simulated Collision Avoidance with units on a tether/pushing/lerping
-
-- [ ] Client can join in-progress, receiving a full state transfer and delta of input tickets
-  - [ ] Full state capture will be done on server every N time
-  - [ ] Live joining will send the last X number of ticks from full-state to current
-  - [ ] Client tick number will be stored on the server, it will be set artificially behind, perhaps this could be negotiated or acked
-  - [ ] Use a separate thread to accomodate joining
-
-- [ ] Client speeds-up to be in lockstep with server simulation
-- [ ] Client sends input only, validated by server and replicated to other clients
-- [ ] Prodution ready RTS boxing and clicking selection system
-- [ ] Client can send unit movement input, server receives and places into a tick for streaming
-- [ ] Client issues orders, once client receives orders back it uses NavigationServer2D with quantized input
-  - [x] Added SGPhysics2D GDExtension for Fixed Math library
-
-- [ ] Client can issue group formation movements
-- [ ] Client and Server have collisions turned off
-- [ ] Implement unit rendering offset rubber band on a swivel approach for rendering
-- [ ] Initial loadout is just square units
-- [ ] Collision data for map is read from simple bit-map file, each pixel representing a tile blocking state
-- [ ] Client and Server exchange tick hashing to determine if the state is sychronized lockstep simulation
----
-- [ ] Start designing the actual core gameplay loop (based on EON and Shattered Galaxy)
-- [ ] The unit selection/build client can be separate from the game client, their can be a secure exchange between the two using token auth on the server
-
-### MVP Tech Stack:
----
-- GODOT
-- SGPhysics2D
-- Nakama
-- FSM Plugin
-
-### MVP Technical Design Constraints:
----
-- 2D
-- Engine Native (logging, debug, etc)
-- No UI
-- No Unit design, top-down or isometric, just block
-
-### Future Graphic Design
-- Simple Block Bench models/ Units
-- Simple terrain
-- 3D to Isometric 2D Pipeline
+#### Client
+1. Connect
+2. Join
+   1. Select your loadout for deployment
+   2. Send a compliant loadout to the server
+   3. Be assigned to a team
+   4. Advance to sync
+3. Sync
+   1. Receive the full game state snapshot
+   2. Receive ticks from full game state tick
+   3. Catch up to the current frame
+   4. Advance to play
+4. Play
+   1. Issue group unit orders
+   2. Advance to play
+5. Result
+   1. View result screen
+   2. Return to loadout screen
