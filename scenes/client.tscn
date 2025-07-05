@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://qtfa2jeyt6ig"]
 
 [ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="1_5f806"]
-[ext_resource type="PackedScene" uid="uid://dwgrpaiow856e" path="res://scenes/maps/map_db.tscn" id="2_1t5vp"]
+[ext_resource type="PackedScene" uid="uid://dwgrpaiow856e" path="res://scenes/map.tscn" id="2_1t5vp"]
 
 [node name="Client" type="Node2D"]
 
-[node name="MapDb" parent="." instance=ExtResource("2_1t5vp")]
+[node name="Map" parent="." instance=ExtResource("2_1t5vp")]
 
 [node name="ClientStateMachine" type="Node" parent="."]
 script = ExtResource("1_5f806")

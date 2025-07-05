@@ -8,11 +8,11 @@ Godot MMORTT
    2. [x] Advance to create
 2. [ ] Create
    1. [x] Add a camera to client scene
-   2. [ x] Load the map
+   2. [x] Load the map
       1. [x] Basic floor
       2. [x] Basic obstacles
-      3. [x] Ignore editor tab error regarding instance bindings for TileMaplayer
-   3. [ ] Add AStarGrid2D to Server
+      3. [x] Ignore editor tab error regarding instance bindings for TileMapLayer
+   3. [ ] Add AStarGrid2D to Map scene, load the TileMapLayer into it
       1. [ ] Automatically load and parse the TileGridLayer map data into Astar
       2. [ ] Create a test button to test navigation pathfinding on the AStarGrid2D object
          1. [ ] Create some rendering to show where the path goes
@@ -79,7 +79,7 @@ Godot MMORTT
 ### Rendering
 1. Units will use an off-set tether to simulate collision avoidance, there will be no actual collision avoidance
 2. If units end up occupying the same position, determine if this is acceptable or implement deterministic logic to resolve
-3. 2D Environmental Art 100% Created By Me
+3. 2D Art Created 100% By me. Top Down, No humanoids.
 
 ### Tech Stack:
 ---
