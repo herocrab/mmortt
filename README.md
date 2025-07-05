@@ -7,9 +7,17 @@ Godot MMORTT
    1. [x] Connect to Nakama service
    2. [x] Advance to create
 2. [ ] Create
-   1. [ ] Load the map
-   2. [x] Create the match in Nakama
-   3. Advance to simulate
+   1. [x] Add a camera to client scene
+   2. [ x] Load the map
+      1. [x] Basic floor
+      2. [x] Basic obstacles
+      3. [x] Ignore editor tab error regarding instance bindings for TileMaplayer
+   3. [ ] Add AStarGrid2D to Server
+      1. [ ] Automatically load and parse the TileGridLayer map data into Astar
+      2. [ ] Create a test button to test navigation pathfinding on the AStarGrid2D object
+         1. [ ] Create some rendering to show where the path goes
+   4. [x] Create the match in Nakama
+   5. [ ] Advance to simulate
 3. Simulate
    1. Needs to facilitate live join
    2. Use a smaller state machine instance to track each client through the remote state and control the remote state machine
@@ -52,7 +60,7 @@ Godot MMORTT
 8. Server will stream state checksum to clients for comparison
 9. Client will send group orders to the server
 10. Server will send authoritative group path using fixed vectors back to clients
-11. Server will use NavigationServer2D to support dynamic pathing (server recomputes navmesh)
+11. Server and Client will use AStarGrid2D for pathing
 12. Clients will deterministically identify individual unit destinations, from group order
    1. Group order will be sent with fixed vector 2i, using grid coordinates
    2. Translation from FixedVector to Fixed (Byte/Byte) will be used to save bandwidth
@@ -71,7 +79,7 @@ Godot MMORTT
 ### Rendering
 1. Units will use an off-set tether to simulate collision avoidance, there will be no actual collision avoidance
 2. If units end up occupying the same position, determine if this is acceptable or implement deterministic logic to resolve
-3. Simple 3D units and flat environment (Running in a 2D simulation)
+3. 2D Environmental Art 100% Created By Me
 
 ### Tech Stack:
 ---
@@ -79,4 +87,14 @@ Godot MMORTT
 - Nakama
 - SGPhysics2D
 - FSM Plugin
-- Block Bench | Magica Voxel
+- Inkscape Vector Art
+
+### Game Features:
+- MMORTT
+- Compelling Squad Loadout customization
+- Compelling Unit Loadout customzation (Unit Augments)
+- Ability Augments for Units
+- Growing and Growing list of units
+- Commanders with Passives
+- RTS Micro-like gameplay
+- POI Control, Base Destruction, and CTF Modes

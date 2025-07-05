@@ -22,6 +22,21 @@ Logger="*res://src/logger.gd"
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 Host="*res://src/network/host.gd"
 
+[display]
+
+window/size/viewport_width=1200
+window/size/viewport_height=700
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/finite_state_machine/plugin.cfg")
+
+[layer_names]
+
+2d_navigation/layer_1="Ground"
+2d_navigation/layer_2="Air"
+2d_navigation/layer_3="Water"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.392157, 0.392157, 0.392157, 1)

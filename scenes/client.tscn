@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://qtfa2jeyt6ig"]
+[gd_scene load_steps=3 format=3 uid="uid://qtfa2jeyt6ig"]
 
 [ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="1_5f806"]
+[ext_resource type="PackedScene" uid="uid://dwgrpaiow856e" path="res://scenes/maps/map_db.tscn" id="2_1t5vp"]
 
-[node name="Client" type="Node3D"]
+[node name="Client" type="Node2D"]
+
+[node name="MapDb" parent="." instance=ExtResource("2_1t5vp")]
 
 [node name="ClientStateMachine" type="Node" parent="."]
 script = ExtResource("1_5f806")
@@ -12,3 +15,6 @@ metadata/_custom_type_script = "uid://dwqv65m8ieqgg"
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Client Scene"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(600, 350)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwgrpaiow856e"]
+
+[ext_resource type="Script" uid="uid://dauew50i67nbu" path="res://src/map_db.gd" id="1_78avg"]
+[ext_resource type="PackedScene" uid="uid://b2kxec640twm4" path="res://scenes/maps/default_map.tscn" id="2_53kaa"]
+
+[node name="MapDb" type="Node2D"]
+
+[node name="MapDb" type="Node" parent="."]
+script = ExtResource("1_78avg")
+maps = {
+"default_map": ExtResource("2_53kaa")
+}
+metadata/_custom_type_script = "uid://dauew50i67nbu"

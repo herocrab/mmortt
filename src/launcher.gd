@@ -7,7 +7,7 @@ var parameters: Dictionary = {}
 
 var defaults = {
 		"server": false,
-		"map": "default",
+		"map": "default_map",
 		"players_per_team": 5,
 		"number_of_teams": 4
 	}
@@ -27,7 +27,7 @@ func _log_parameters() -> void:
 	Logger.write("INFO", "Players per team: " + str(parameters["players_per_team"]) + ".")
 	Logger.write("INFO", "Number of teams: " + str(parameters["number_of_teams"]) + ".")
 
-func _parse_args() -> Dictionary:
+func _parse_args() -> void:
 	var args = OS.get_cmdline_args()
 	for arg in args:
 		if arg.begins_with("--"):
@@ -40,7 +40,6 @@ func _parse_args() -> Dictionary:
 	for key in defaults:
 		if not parameters.has(key):
 			parameters[key] = defaults[key]
-	return parameters
 
 func _change_scene() -> void:
 	var _next_scene: PackedScene
