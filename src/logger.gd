@@ -11,7 +11,7 @@ func initialize():
 func _open_log_file() -> void:
     _log_file = FileAccess.open(_log_file_path, FileAccess.WRITE)
     if _log_file:
-        write("INFO", "Logger started at: " + Time.get_datetime_string_from_system())
+        write("INFO", "Logger started at: " + Time.get_datetime_string_from_system() + ".")
     else:
         write("ERROR", "Failed to open log file at " + _log_file_path + ".")
         push_error("Failed to open log file at " + _log_file_path + ".")
