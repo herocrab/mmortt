@@ -51,12 +51,10 @@ func _connect_to_nakama():
 
 			if Host.socket.is_connected_to_host():
 				Logger.write("INFO", "Nakama socket connected to real-time server.")
-				var state_machine = get_state_machine()
-				state_machine.current_state = next_state
+				_to_next_state()
 			else:
 				Logger.write("ERROR", "Nakama socket failed to connect to real-time server.")
 		else:
 			Logger.write("ERROR", "Nakama client has failed to authenticate.")
 	else:
 		Logger.write("ERROR", "Nakama client has failed to connect.")
-

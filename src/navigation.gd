@@ -37,3 +37,14 @@ func load_tile_map_layer(tile_map_layer: TileMapLayer):
 
     _astar.update()
     Logger.write("INFO", "AStarGrid2D loaded with " + str(is_not_walkable_count) + " not walkable tiles.")
+
+func get_grid_path(from: Vector2i, to: Vector2i) -> PackedVector2Array:
+    return _astar.get_id_path(from, to, true)
+
+func get_world_path(from: Vector2i, to: Vector2i) -> PackedVector2Array:
+    var path = _astar.get_id_path(from, to, true)
+    var world_path = []
+    for point in path:
+        var world_pos = point * 50
+        world_path.append(world_pos)
+    return world_path

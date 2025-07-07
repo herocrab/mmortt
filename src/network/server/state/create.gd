@@ -20,3 +20,4 @@ func _create_match():
 		Logger.write("ERROR", "Nakama server not able to create a match.")
 	else:
 		Logger.write("INFO", "Nakama server created match id: " + _match.match_id + ".")
+	_to_next_state()
