@@ -1,9 +1,9 @@
 extends Node
 
 # Constants
-const FIXED_SHIFT := 16
+const FIXED_SHIFT := 16 # could use 32
 const FIXED_ONE := 1 << FIXED_SHIFT
-const FIXED_MASK := FIXED_ONE - 1
+#const FIXED_MASK := FIXED_ONE - 1 # can be used to remove fractional portion
 const PI_FIXED := int(3.14159265 * FIXED_ONE)
 const TWO_PI_FIXED := int(2 * 3.14159265 * FIXED_ONE)
 
