@@ -21,8 +21,8 @@ Godot MMORTT
    1. [ ] <mark>Simulation Tick</mark>
       1. [ ] <mark>SimulationNode</mark>
       2. [ ] <mark>SimulationNode Dictionary with Add/Remove API</mark>
-      3. Simulation Nodes must be assigned int ID's and all logic evaluated in order
-      4. Order's must also be processed in exactly the same order
+      3. [ ] Simulation Nodes must be assigned int ID's and all logic evaluated in order
+      4. [ ] Order's must also be processed in exactly the same order, sorted
    2. [ ] Remote-client State machine
       1. [ ] Server tracks the state of each remote client to faciliate live join
    3. Live Join
