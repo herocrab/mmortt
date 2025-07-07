@@ -1,3 +1,3 @@
 extends Node
 
-#class_name SimulationNode
+class_name SimulationNode

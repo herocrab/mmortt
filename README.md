@@ -17,43 +17,58 @@ Godot MMORTT
       2. [x] Render a test path using draw functionality
    4. [x] Create the match in Nakama
    5. [x] Advance to simulate
-3. [ ] Simulate
-   1. [ ] Start the simulation tick
-      1. [ ] Simulation Nodes must be assigned int ID's and all logic evaluated in order
-      2. [ ] Order's must also be processed in exactly the same order
-   2. [ ] Needs to facilitate live join
-      1. [ ] Simulation must have a means of creating full state from deterministic structs
-      2. [ ] This can run on a modulo, or every single tick
-   3. Use a smaller state machine instance to track each client through the remote state and control the remote state machine
+3. [ ] <mark>Simulate</mark>
+   1. [ ] <mark>Simulation Tick</mark>
+      1. [ ] <mark>SimulationNode</mark>
+      2. [ ] <mark>SimulationNode Dictionary with Add/Remove API</mark>
+      3. Simulation Nodes must be assigned int ID's and all logic evaluated in order
+      4. Order's must also be processed in exactly the same order
+   2. [ ] Remote-client State machine
+      1. [ ] Server tracks the state of each remote client to faciliate live join
+   3. Live Join
+      1. [ ] Assign maximum players for the match
+      2. [ ] Send a "kick" or "disconnect" opcode if maximum number of players have been reached
+      3. Simulation must have a means of creating full state from deterministic structs
+      4. This can run on a modulo, or every single tick
    4. You can copy the state to a thread using deep(true) and await the function, this can just be done for a client joining
    5. Advance to conclude after game timer expires
 4. Conclude
 
 #### Client
-1. [ ] Connect [connect]
-   1. [ ] Connect to Nakama service [connect]
-   2. [ ] Advance to join_server
-2. [ ] Join [join_server]
-   1. [ ] Select your loadout for deployment [select_loadout]
+1. [ ] Connect
+   1. [ ] Connect to Nakama service
+   2. [ ] Advance to join
+2. [ ] Join
+   1. [ ] Select your loadout for deployment
       1. [ ] Create a generic unit out of Node2D
-   2. Send a compliant loadout to the server [select_loadout]
-   3. [ ] Join the match in Nakama [join_match]
-   4. [ ] Be informed of the map [load_map]
-   5. [ ] Load the map [load_map]
-   6. [ ] Be assigned to a team [join_team]
-   7. [ ] Advance to sync
-3. Sync
-   1. Receive the full game state snapshot
+   2. Send a compliant loadout to the server
+   3. [ ] Join a match in Nakama
+      1. [ ] First match with a spot available
+3. [ ] Load
+   1. [ ] Load the map
+   2. [ ] Be assigned to a team
+   3. [ ] Advance to sync
+4. Sync
+   1. Receive the full game state snapshot at the most recent state tick
       1. Units must cache state for special ticks
    2. Receive ticks from full game state tick
    3. Catch up to the current frame
    4. Advance to play
-4. Play
+5. Play
    1. Issue group unit orders
+      1. Selection will use bitmasks, or bit shifting for up to 16 units, this will be consistent 2byte bandwidth
    2. Advance to result
-5. Result
+6. Result
    1. View result screen
    2. Return to loadout screen
+
+Client (local) vs client (remote)
+join -> remote_join
+load -> remote_load
+sync -> remote_sync
+play -> remote_play
+result -> remote_result
+
 
 ### Lockstep Simulation
 1. Client will send input
