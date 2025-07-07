@@ -6,15 +6,12 @@ class_name Map
 @export var start_pos : Vector2i = Vector2i(1,1)
 @export var end_pos : Vector2i = Vector2i(14,10)
 @export var debug_path : bool = true
-@export var debug_box_size: Vector2 = Vector2(40, 40)
-@export var debug_box_offset: Vector2 = Vector2(5, 5)
+@export var debug_box_size: Vector2 = Vector2(50, 50)
 @export var debug_box_border_color: Color = Color(0, 1, 0)
 @export var debug_box_border_thickness: float = 10.0
 
 @export_group("Map Database")
 @export var maps : Dictionary = {}
-
-var navigation: Navigation
 
 var _map_instance : Node
 var _tile_map_layer : TileMapLayer
@@ -36,12 +33,11 @@ func _cache_tile_map_layer():
 			push_error("Map cannot locate TileMapLayer")
 
 func _load_navigation():
-	navigation = Navigation.new()
-	navigation.load_tile_map_layer(_tile_map_layer)
+	Navigation.load_tile_map_layer(_tile_map_layer)
 
 func _debug_navigation():
 	if debug_path:
-		_debug_world_path = navigation.get_world_path(start_pos, end_pos)
+		_debug_world_path = Navigation.get_presentation_world_path_from_fixed_grid_start_stop(start_pos, end_pos)
 
 func _load_map():
 	var map_name = Launcher.parameters["map"]
@@ -56,5 +52,5 @@ func _exit_tree() -> void:
 
 func _draw():
 	for pos in _debug_world_path:
-		var rect = Rect2(pos + debug_box_offset, debug_box_size)
+		var rect = Rect2(pos, debug_box_size)
 		draw_rect(rect, debug_box_border_color, false, debug_box_border_thickness)

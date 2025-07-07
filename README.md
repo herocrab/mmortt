@@ -62,18 +62,17 @@ Godot MMORTT
    1. View result screen
    2. Return to loadout screen
 
-Client (local) vs client (remote)
+### Client (local) vs client (remote)
 join -> remote_join
 load -> remote_load
 sync -> remote_sync
 play -> remote_play
 result -> remote_result
 
-
 ### Lockstep Simulation
 1. Client will send input
 2. Server will send input
-3. Game logic and processing will be deterministic
+3. Game logic will be deterministic
 4. Simulation will not run physics
 5. Presentation may run physics for simulated collision avoidance
 6. Server will stream input to all clients
@@ -87,20 +86,29 @@ result -> remote_result
    2. Translation from FixedVector to Fixed (Byte/Byte) will be used to save bandwidth
    3. This can be done per destination or along waypoints
 13. All units will use a state machine, based on orders and simulation position
-14. Processing of all unit logic will take place deterministically (ordered)
-15. A hard line of separation will exist between simulation and presentation
+15. A hard line of separation will exist between simulation and presentation layers
 
 ### Live Join
 1. Server will mintain a stateful dictionary of structs
 2. When a client joins, server will start a thread to live-join the client, copying the stateful dictionary of structs
-3. Server ill annotate what tick the client joined and stream all ticks from that frame
+3. Server will annotate what tick the client joined and stream all ticks from that frame to current
 4. Client will speed up the simulation to join in progress
-5. Use Opcodes with RTAPI, channels for for chat or other handling
+5. Use Opcodes with RTAPI for game state and input, use channels for for chat or other generic handling
 
 ### Rendering
 1. Units will use an off-set tether to simulate collision avoidance, there will be no actual collision avoidance
 2. If units end up occupying the same position, determine if this is acceptable or implement deterministic logic to resolve
 3. 2D Art Created 100% By me. Top Down, No humanoids.
+
+### Unit Design
+Turret Types:
+- Rotating
+- Fixed
+- None
+
+Unit Types:
+- Ground
+- Air
 
 ### Tech Stack:
 ---

@@ -1,0 +1,112 @@
+# This is a reference to use for determinism, pulled from chatgpt
+
+extends Node2D
+
+# === Fixed-point constants ===
+const FIXED_ONE := FixedMath.FIXED_ONE
+const TILE_SIZE := 50 * FIXED_ONE
+const UNIT_SPEED := 8 * FIXED_ONE
+const ROTATE_SPEED := int(90 * FIXED_ONE)
+const FIXED_TIMESTEP := int((1.0 / 30.0) * FIXED_ONE)
+
+# === Path and movement state ===
+var path: Array[Vector2i] = [Vector2i(5, 5), Vector2i(7, 5), Vector2i(7, 7), Vector2i(5, 7)]
+var segment_index := 0
+var t_fixed := 0
+
+var world_pos_x := 0
+var world_pos_y := 0
+
+var turret_angle := 0  # In fixed-point degrees
+
+# === Nodes ===
+@onready var turret = $Turret
+
+func _ready():
+	var start = grid_to_world_fixed(path[0])
+	world_pos_x = start.x
+	world_pos_y = start.y
+	set_physics_process(true)
+
+func grid_to_world_fixed(grid: Vector2i) -> Vector2i:
+	return Vector2i(grid.x * TILE_SIZE, grid.y * TILE_SIZE)
+
+func _physics_process(_delta: float) -> void:
+	if segment_index >= path.size() - 1:
+		return
+
+	var start = grid_to_world_fixed(path[segment_index])
+	var end = grid_to_world_fixed(path[segment_index + 1])
+	var dx = end.x - start.x
+	var dy = end.y - start.y
+	var dist_sq = dx * dx + dy * dy
+	var dist = FixedMath.int_sqrt(dist_sq)
+	if dist == 0:
+		return
+
+	var duration = FixedMath.div(dist, UNIT_SPEED)
+	var t_delta = FixedMath.div(FIXED_TIMESTEP, duration)
+	t_fixed += t_delta
+
+	if t_fixed >= FIXED_ONE:
+		t_fixed -= FIXED_ONE
+		segment_index += 1
+		if segment_index >= path.size() - 1:
+			segment_index = path.size() - 2
+			t_fixed = FIXED_ONE
+
+	world_pos_x = FixedMath.lerp(start.x, end.x, t_fixed)
+	world_pos_y = FixedMath.lerp(start.y, end.y, t_fixed)
+
+	# Set unit position
+	global_position = Vector2(
+		FixedMath.to_float(world_pos_x),
+		FixedMath.to_float(world_pos_y)
+	)
+
+	# === Turret Rotation ===
+	var vx = end.x - world_pos_x
+	var vy = end.y - world_pos_y
+	var angle_rad = atan2(float(vy), float(vx))  # still float
+	var angle_fixed = FixedMath.to_fixed(angle_rad)
+	var target_angle = FixedMath.fixed_rad_to_deg(angle_fixed)
+	target_angle = FixedMath.normalize_angle(target_angle)
+
+	var angle_diff = FixedMath.angle_diff(turret_angle, target_angle)
+	var max_rotate = FixedMath.mul(ROTATE_SPEED, FIXED_TIMESTEP) / FIXED_ONE
+
+	if abs(angle_diff) <= max_rotate:
+		turret_angle = target_angle
+	else:
+		turret_angle += sign(angle_diff) * max_rotate
+
+	turret_angle = FixedMath.normalize_angle(turret_angle)
+
+	# Apply turret rotation visually
+	turret.rotation_degrees = FixedMath.to_float(turret_angle)
+
+
+const DETECTION_RADIUS := 5 * FIXED_ONE  # 5 world units
+
+# Let's say these are your fixed-point world positions
+var unit_x := 10 * FIXED_ONE
+var unit_y := 15 * FIXED_ONE
+
+var target_x := 13 * FIXED_ONE
+var target_y := 18 * FIXED_ONE
+
+func example():
+	var distance : int = FixedMath.distance(unit_x, unit_y, target_x, target_y)
+
+	if distance <= DETECTION_RADIUS:
+		print("Target is in range!")
+	else:
+		print("Target is too far.")
+
+# here is an example of checking range and removing the sqr
+func is_in_range_sq(ax: int, ay: int, bx: int, by: int, range_fixed: int) -> bool:
+	var dx := ax - bx
+	var dy := ay - by
+	var dist_sq := dx * dx + dy * dy
+	var range_sq := range_fixed * range_fixed
+	return dist_sq <= range_sq

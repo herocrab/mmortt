@@ -1,18 +1,20 @@
 extends Node
 
-class_name Navigation
-
 var _astar: AStarGrid2D
+var _tile_size_fixed: int
 
 func load_tile_map_layer(tile_map_layer: TileMapLayer):
     _astar = AStarGrid2D.new()
+
+    var tile_size = tile_map_layer.tile_set.tile_size
+    _tile_size_fixed = tile_size.x * FixedMath.FIXED_ONE
 
     var used_rect = tile_map_layer.get_used_rect()
     var origin = used_rect.position
     var size = used_rect.size
 
     _astar.region = Rect2i(origin, size)
-    _astar.cell_size = Vector2(1, 1)
+    _astar.cell_size = tile_size
     _astar.update()
 
     var is_not_walkable_count = 0
@@ -38,13 +40,35 @@ func load_tile_map_layer(tile_map_layer: TileMapLayer):
     _astar.update()
     Logger.write("INFO", "AStarGrid2D loaded with " + str(is_not_walkable_count) + " not walkable tiles.")
 
-func get_grid_path(from: Vector2i, to: Vector2i) -> PackedVector2Array:
-    return _astar.get_id_path(from, to, true)
+# Get the fixed world position, from the fixed grid position
+func from_fixed_grid_to_fixed_world_pos(grid_pos: Vector2i) -> Vector2i:
+    var x := grid_pos.x * _tile_size_fixed
+    var y := grid_pos.y * _tile_size_fixed
+    return Vector2i(x, y)
 
-func get_world_path(from: Vector2i, to: Vector2i) -> PackedVector2Array:
-    var path = _astar.get_id_path(from, to, true)
-    var world_path = []
-    for point in path:
-        var world_pos = point * 50
-        world_path.append(world_pos)
-    return world_path
+# Get the fixed grid position, from the fixed world position
+func from_fixed_world_to_fixed_grid_pos(world_pos_fixed: Vector2i) -> Vector2i:
+    var x := world_pos_fixed.x / _tile_size_fixed
+    var y := world_pos_fixed.y / _tile_size_fixed
+    return Vector2i(x, y)
+
+# Get the presentation world position, from the fixed grid psoition
+func from_fixed_grid_pos_to_presentation_world_pos(grid_pos: Vector2i) -> Vector2:
+    return _astar.get_point_position(grid_pos)
+
+# Get the fixed grid path, from fixed grid start and stop
+func get_fixed_grid_path_from_fixed_grid_start_stop(start: Vector2i, stop: Vector2i) -> Array[Vector2i]:
+    return _astar.get_id_path(start, stop, true)
+
+# Get the fixed world path, from the fixed grid start and stop
+func get_fixed_world_path_from_fixed_grid_start_stop(start: Vector2i, stop: Vector2i) -> Array[Vector2i]:
+    var grid_path = get_fixed_grid_path_from_fixed_grid_start_stop(start, stop)
+    var world_path_fixed = []
+    for point in grid_path:
+        var world_point = from_fixed_grid_to_fixed_world_pos(point)
+        world_path_fixed.append(world_point)
+    return world_path_fixed
+
+# Get the presentation world path, from the fixed grid starta nd stop
+func get_presentation_world_path_from_fixed_grid_start_stop(start: Vector2i, stop: Vector2i) -> PackedVector2Array:
+    return _astar.get_point_path(start, stop)
