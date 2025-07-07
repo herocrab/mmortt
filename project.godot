@@ -44,6 +44,10 @@ enabled=PackedStringArray("res://addons/finite_state_machine/plugin.cfg")
 2d_navigation/layer_2="Air"
 2d_navigation/layer_3="Water"
 
+[physics]
+
+common/physics_ticks_per_second=30
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.392157, 0.392157, 0.392157, 1)

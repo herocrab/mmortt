@@ -9,11 +9,6 @@
 z_index = 1
 z_as_relative = false
 script = ExtResource("1_ry644")
-start_pos = null
-end_pos = null
-debug_path = null
-debug_box_size = null
-debug_box_border_color = null
 debug_box_border_thickness = 1.0
 maps = {
 "default_map": ExtResource("2_ce1uw")
