@@ -9,8 +9,6 @@
 
 [node name="Server" type="Node2D"]
 
-[node name="Map" parent="." instance=ExtResource("5_yw53h")]
-
 [node name="ServerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("1_6bwch")
 current_state = NodePath("Initial")
@@ -32,6 +30,8 @@ next_state = NodePath("../Simulate")
 [node name="Simulate" type="Node" parent="ServerStateMachine"]
 script = ExtResource("6_x3762")
 metadata/_custom_type_script = "uid://lm7s4y4h4j0x"
+
+[node name="Map" parent="." instance=ExtResource("5_yw53h")]
 
 [node name="Label" type="Label" parent="."]
 offset_right = 100.0

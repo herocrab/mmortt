@@ -5,11 +5,11 @@
 
 [node name="Client" type="Node2D"]
 
-[node name="Map" parent="." instance=ExtResource("2_1t5vp")]
-
 [node name="ClientStateMachine" type="Node" parent="."]
 script = ExtResource("1_5f806")
 metadata/_custom_type_script = "uid://dwqv65m8ieqgg"
+
+[node name="Map" parent="." instance=ExtResource("2_1t5vp")]
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
