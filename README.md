@@ -27,7 +27,7 @@ Godot MMORTT
          1. [x] _presentation_update
       6. [x] Create the server player, this will be needed to sync the state of all existing AI controlled units.
    2. [ ] <mark>Client joining up to the point it needs a remote-client state machine</mark>
-      1. [ ] <mark>See the client section down below</mark>
+      1. [ ] <mark>This should happen upon joining a match</mark>
    3. [ ] Remote-client State machine
       1. [ ] Server tracks the state of each remote client to faciliate live join
    6. [ ] Advance to conclude after game timer expires
@@ -41,17 +41,20 @@ play -> remote_play
 result -> remote_result
 
 #### Client
-1. [ ] Connect
-   1. [ ] Connect to Nakama service
-   2. [ ] Advance to join
-2. [ ] Join
-   1. [ ] Select your loadout for deployment
-      1. [ ] Create a generic unit out of Node2D
-   2. Send a compliant loadout to the server
-   3. [ ] Join a match in Nakama
+1. [x] Connect
+   1. [x] Connect to Nakama service
+   2. [x] Advance to join
+2. [ ] <mark>Join</mark>
+   1. [ ] <mark>Select your loadout for deployment</mark>
+      1. [x] Create a square unit in inkscape
+      2. [x] Create a basic Square unit
+      3. [x] Create a UnitDb to house the Units by byte enum ID
+      4. [x] Add units for a basic loadout in join class, for ease
+   2. [ ] Join a match in Nakama
       1. [ ] First match with a spot available, server checks player count
-      2. [ ] Server sends disconnect request to clients if there are no slots available
-      3. [ ]
+      2. [ ] Server callback for match player joined
+      3. [ ] Send loadout to the server
+      4. [ ] Server sends disconnect request to clients if there are no slots available
 3. [ ] Load
    1. [ ] Load the map
    2. [ ] Be assigned to a team
@@ -106,9 +109,9 @@ Commands Received --> Assigned Player ID (byte) --> Assigned to Command Processi
 
 ### Unit Design
 Turret Types:
-- Rotating
-- Fixed
-- None
+- RotatingTurret
+- FixedTurret
+- NoTurret
 
 Unit Types:
 - Ground

@@ -8,8 +8,12 @@ var _socket: NakamaSocket
 var _match: NakamaRTAPI.Match
 
 func _enter_state() -> void:
+	_log_state()
 	_cache_host()
 	_create_match()
+
+func _log_state() -> void:
+	Logger.write("INFO", "Server has entered the CREATE state.")
 
 func _cache_host():
 	_socket = Host.socket

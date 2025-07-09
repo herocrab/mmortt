@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6r7o61nsa421"]
+
+[ext_resource type="Script" uid="uid://dequo7nqne5tw" path="res://src/units/unit_db.gd" id="1_cv1gr"]
+[ext_resource type="PackedScene" uid="uid://mfpvl8mfr8pi" path="res://scenes/units/square.tscn" id="2_7o6d5"]
+
+[node name="UnitDb" type="Node"]
+script = ExtResource("1_cv1gr")
+units = {
+"square": ExtResource("2_7o6d5")
+}

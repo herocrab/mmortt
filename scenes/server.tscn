@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8ex7t3ifxd2n"]
+[gd_scene load_steps=8 format=3 uid="uid://8ex7t3ifxd2n"]
 
 [ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="1_6bwch"]
 [ext_resource type="Script" uid="uid://c64macdydqsqj" path="res://src/utility/initital_state.gd" id="2_3iytc"]
@@ -6,8 +6,11 @@
 [ext_resource type="Script" uid="uid://c2705tma4amkj" path="res://src/network/connect.gd" id="3_yw53h"]
 [ext_resource type="PackedScene" uid="uid://dwgrpaiow856e" path="res://scenes/map.tscn" id="5_yw53h"]
 [ext_resource type="Script" uid="uid://lm7s4y4h4j0x" path="res://src/network/server/state/simulate.gd" id="6_x3762"]
+[ext_resource type="PackedScene" uid="uid://b6r7o61nsa421" path="res://scenes/unit_db.tscn" id="7_mo1ex"]
 
 [node name="Server" type="Node2D"]
+
+[node name="UnitDb" parent="." instance=ExtResource("7_mo1ex")]
 
 [node name="ServerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("1_6bwch")

@@ -5,8 +5,12 @@ class_name Simulate
 var _server_player : Player
 
 func _enter_state() -> void:
+    _log_state()
     _begin_simulation()
     _create_server_player()
+
+func _log_state() -> void:
+    Logger.write("INFO", "Server has entered the SIMULATE state.")
 
 func _begin_simulation() -> void:
     Simulation.reset()

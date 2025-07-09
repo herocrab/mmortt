@@ -11,8 +11,12 @@ var _refresh_interval: int = 600
 var _refresh_timer: Timer
 
 func _enter_state() -> void:
+	_log_state()
 	_connect_to_nakama()
 	_create_reauthentication_timer()
+
+func _log_state() -> void:
+	Logger.write("INFO", "Network host has entered the CONNECT state.")
 
 func _create_reauthentication_timer() -> void:
 	_refresh_timer = Timer.new()
