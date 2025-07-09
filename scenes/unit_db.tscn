@@ -6,5 +6,5 @@
 [node name="UnitDb" type="Node"]
 script = ExtResource("1_cv1gr")
 units = {
-"square": ExtResource("2_7o6d5")
+0: ExtResource("2_7o6d5")
 }

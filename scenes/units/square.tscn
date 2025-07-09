@@ -6,7 +6,6 @@
 [node name="Square" type="Node" node_paths=PackedStringArray("chassis")]
 script = ExtResource("1_d7y7c")
 chassis = NodePath("Chassis")
-uname = "square"
 metadata/_custom_type_script = "uid://bqesx44k0cit3"
 
 [node name="Chassis" type="Sprite2D" parent="."]

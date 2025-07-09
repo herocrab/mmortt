@@ -12,6 +12,8 @@
 
 [node name="UnitDb" parent="." instance=ExtResource("7_dipmf")]
 
+[node name="Map" parent="." instance=ExtResource("2_1t5vp")]
+
 [node name="ClientStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("1_5f806")
 current_state = NodePath("InitialState")
@@ -36,8 +38,6 @@ loadout = {
 3: ExtResource("5_da3od")
 }
 metadata/_custom_type_script = "uid://c568cillbnh17"
-
-[node name="Map" parent="." instance=ExtResource("2_1t5vp")]
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

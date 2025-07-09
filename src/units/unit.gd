@@ -2,4 +2,4 @@ extends SimulationNode
 
 class_name Unit
 
-@export var uname : String
+@export var uid : UnitDb.Uid

@@ -52,12 +52,14 @@ result -> remote_result
       4. [x] Add units for a basic loadout in join class, for ease
    2. [ ] Join a match in Nakama
       1. [ ] First match with a spot available, server checks player count
-      2. [ ] Server callback for match player joined
-      3. [ ] Send loadout to the server
-      4. [ ] Server sends disconnect request to clients if there are no slots available
+      2. [ ] Server sends disconnect request to clients if there are no slots available
+      3. [ ] Server callback for match player joined
+      4. [ ] Send loadout to the server and receive acknowledgement before loading
+         1. [ ] Server assigns a location (server side)
+         2. [ ] Server adds a "create" message to the game tick (first input message)
+         3. [ ] Server creates the units
 3. [ ] Load
    1. [ ] Load the map
-   2. [ ] Be assigned to a team
    3. [ ] Advance to sync
 4. Sync
    1. Receive the full game state snapshot at the most recent state tick
