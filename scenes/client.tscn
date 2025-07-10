@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qtfa2jeyt6ig"]
+[gd_scene load_steps=13 format=3 uid="uid://qtfa2jeyt6ig"]
 
 [ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="1_5f806"]
 [ext_resource type="PackedScene" uid="uid://dwgrpaiow856e" path="res://scenes/map.tscn" id="2_1t5vp"]
@@ -6,7 +6,12 @@
 [ext_resource type="Script" uid="uid://c2705tma4amkj" path="res://src/network/connect.gd" id="3_da3od"]
 [ext_resource type="Script" uid="uid://c568cillbnh17" path="res://src/network/client/state/join.gd" id="4_dipmf"]
 [ext_resource type="PackedScene" uid="uid://mfpvl8mfr8pi" path="res://scenes/units/square.tscn" id="5_da3od"]
+[ext_resource type="Script" uid="uid://pyjbsucm7tf5" path="res://src/network/client/state/select.gd" id="6_5q6u5"]
 [ext_resource type="PackedScene" uid="uid://b6r7o61nsa421" path="res://scenes/unit_db.tscn" id="7_dipmf"]
+[ext_resource type="Script" uid="uid://blksglp1rvgih" path="res://src/network/client/state/load.gd" id="9_ik056"]
+[ext_resource type="Script" uid="uid://6hb70gao7sdw" path="res://src/network/client/state/play.gd" id="9_umycy"]
+[ext_resource type="Script" uid="uid://cloxepw5tc71d" path="res://src/network/client/state/sync.gd" id="10_ta3x6"]
+[ext_resource type="Script" uid="uid://c5h1xsc7fbift" path="res://src/network/client/state/result.gd" id="12_u5oxf"]
 
 [node name="Client" type="Node2D"]
 
@@ -26,18 +31,44 @@ metadata/_custom_type_script = "uid://c64macdydqsqj"
 
 [node name="Connect" type="Node" parent="ClientStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("3_da3od")
-next_state = NodePath("../Join")
+next_state = NodePath("../Select")
 metadata/_custom_type_script = "uid://c2705tma4amkj"
 
-[node name="Join" type="Node" parent="ClientStateMachine"]
-script = ExtResource("4_dipmf")
+[node name="Select" type="Node" parent="ClientStateMachine" node_paths=PackedStringArray("join", "next_state")]
+script = ExtResource("6_5q6u5")
 loadout = {
 0: ExtResource("5_da3od"),
 1: ExtResource("5_da3od"),
 2: ExtResource("5_da3od"),
 3: ExtResource("5_da3od")
 }
+join = NodePath("../Join")
+next_state = NodePath("../Join")
+
+[node name="Join" type="Node" parent="ClientStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("4_dipmf")
+next_state = NodePath("../Load")
 metadata/_custom_type_script = "uid://c568cillbnh17"
+
+[node name="Load" type="Node" parent="ClientStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("9_ik056")
+next_state = NodePath("../Sync")
+metadata/_custom_type_script = "uid://blksglp1rvgih"
+
+[node name="Sync" type="Node" parent="ClientStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("10_ta3x6")
+next_state = NodePath("../Play")
+metadata/_custom_type_script = "uid://cloxepw5tc71d"
+
+[node name="Play" type="Node" parent="ClientStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("9_umycy")
+next_state = NodePath("../Result")
+metadata/_custom_type_script = "uid://6hb70gao7sdw"
+
+[node name="Result" type="Node" parent="ClientStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("12_u5oxf")
+next_state = NodePath("../Select")
+metadata/_custom_type_script = "uid://c5h1xsc7fbift"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

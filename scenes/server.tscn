@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8ex7t3ifxd2n"]
+[gd_scene load_steps=9 format=3 uid="uid://8ex7t3ifxd2n"]
 
 [ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="1_6bwch"]
 [ext_resource type="Script" uid="uid://c64macdydqsqj" path="res://src/utility/initital_state.gd" id="2_3iytc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dwgrpaiow856e" path="res://scenes/map.tscn" id="5_yw53h"]
 [ext_resource type="Script" uid="uid://lm7s4y4h4j0x" path="res://src/network/server/state/simulate.gd" id="6_x3762"]
 [ext_resource type="PackedScene" uid="uid://b6r7o61nsa421" path="res://scenes/unit_db.tscn" id="7_mo1ex"]
+[ext_resource type="Script" uid="uid://tgju5ko3tuvi" path="res://src/network/server/state/conclude.gd" id="8_lww6y"]
 
 [node name="Server" type="Node2D"]
 
@@ -32,9 +33,15 @@ next_state = NodePath("../Create")
 script = ExtResource("3_3iytc")
 next_state = NodePath("../Simulate")
 
-[node name="Simulate" type="Node" parent="ServerStateMachine"]
+[node name="Simulate" type="Node" parent="ServerStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("6_x3762")
+next_state = NodePath("../Conclude")
 metadata/_custom_type_script = "uid://lm7s4y4h4j0x"
+
+[node name="Conclude" type="Node" parent="ServerStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("8_lww6y")
+next_state = NodePath("../Create")
+metadata/_custom_type_script = "uid://tgju5ko3tuvi"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 100.0
