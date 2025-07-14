@@ -6,12 +6,11 @@ class_name Map
 @export var start_pos : Vector2i = Vector2i(1,1)
 @export var end_pos : Vector2i = Vector2i(14,10)
 @export var debug_path : bool = true
-@export var debug_radius: int = 50
-@export var debug_path_color: Color = Color(0, 1, 0)
-@export var debug_border_thickness: float = 5.0
+@export var debug_color: Color = Color(0, 1, 0)
+@export var debug_border_thickness: float = 2.0
 
 @export_group("Map Settings")
-@export var terrain_layer_name = "TerrainLayer"
+@export var terrain_layer_name = "NavigationLayer"
 
 @export_group("Map Database")
 @export var maps : Dictionary = {}
@@ -55,5 +54,7 @@ func _exit_tree() -> void:
 		remove_child(_map_instance)
 
 func _draw():
+	var cell_size = Navigation.get_cell_size()
 	for pos in _debug_world_path:
-		draw_circle(pos, debug_radius, debug_path_color, false, debug_border_thickness)
+		var rect = Rect2(pos, cell_size)
+		draw_rect(rect, debug_color, false, debug_border_thickness)

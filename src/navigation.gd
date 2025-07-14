@@ -72,3 +72,6 @@ func get_fixed_world_path_from_fixed_grid_start_stop(start: Vector2i, stop: Vect
 # Get the presentation world path, from the fixed grid starta nd stop
 func get_presentation_world_path_from_fixed_grid_start_stop(start: Vector2i, stop: Vector2i) -> PackedVector2Array:
 	return _astar.get_point_path(start, stop)
+
+func get_cell_size() -> Vector2:
+	return _astar.cell_size

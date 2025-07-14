@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cx647lsmdelm0"]
+
+[ext_resource type="Texture2D" uid="uid://pgk53srg863c" path="res://assets/sprites/walkable.png" id="1_dbj7b"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xape"]
+texture = ExtResource("1_dbj7b")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+1:0/0 = 0
+1:0/0/custom_data_0 = true
+
+[resource]
+tile_size = Vector2i(50, 50)
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
+sources/1 = SubResource("TileSetAtlasSource_6xape")
