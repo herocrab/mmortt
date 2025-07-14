@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4a47ub26qe6h"
-path="res://.godot/imported/base_tileset.png-e7cc00528b154bd1d1d71a7c88925c71.ctex"
+uid="uid://biaw7ab2nd6yw"
+path="res://.godot/imported/base_tileset_fog_200x200.png-6a2f29dd71b2762475130ea0a4bd3874.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/base_tileset.png"
-dest_files=["res://.godot/imported/base_tileset.png-e7cc00528b154bd1d1d71a7c88925c71.ctex"]
+source_file="res://assets/sprites/base_tileset_fog_200x200.png"
+dest_files=["res://.godot/imported/base_tileset_fog_200x200.png-6a2f29dd71b2762475130ea0a4bd3874.ctex"]
 
 [params]
 
