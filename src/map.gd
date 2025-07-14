@@ -6,9 +6,9 @@ class_name Map
 @export var start_pos : Vector2i = Vector2i(1,1)
 @export var end_pos : Vector2i = Vector2i(14,10)
 @export var debug_path : bool = true
-@export var debug_box_size: Vector2 = Vector2(50, 50)
-@export var debug_box_border_color: Color = Color(0, 1, 0)
-@export var debug_box_border_thickness: float = 10.0
+@export var debug_radius: int = 50
+@export var debug_path_color: Color = Color(0, 1, 0)
+@export var debug_border_thickness: float = 5.0
 
 @export_group("Map Settings")
 @export var terrain_layer_name = "TerrainLayer"
@@ -56,5 +56,4 @@ func _exit_tree() -> void:
 
 func _draw():
 	for pos in _debug_world_path:
-		var rect = Rect2(pos, debug_box_size)
-		draw_rect(rect, debug_box_border_color, false, debug_box_border_thickness)
+		draw_circle(pos, debug_radius, debug_path_color, false, debug_border_thickness)
