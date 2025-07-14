@@ -1,0 +1,63 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bhmse03oj4t64"]
+
+[ext_resource type="Texture2D" uid="uid://c4a47ub26qe6h" path="res://assets/sprites/base_tileset.png" id="1_4q83s"]
+[ext_resource type="Texture2D" uid="uid://biaw7ab2nd6yw" path="res://assets/sprites/base_tileset_fog.png" id="2_idkkx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y7h6b"]
+texture = ExtResource("1_4q83s")
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+0:1/0/custom_data_0 = true
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sboum"]
+texture = ExtResource("2_idkkx")
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:1/0 = 0
+0:1/0/custom_data_0 = true
+
+[resource]
+tile_size = Vector2i(200, 200)
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
+sources/2 = SubResource("TileSetAtlasSource_y7h6b")
+sources/3 = SubResource("TileSetAtlasSource_sboum")

@@ -10,6 +10,9 @@ class_name Map
 @export var debug_box_border_color: Color = Color(0, 1, 0)
 @export var debug_box_border_thickness: float = 10.0
 
+@export_group("Map Settings")
+@export var terrain_layer_name = "TerrainLayer"
+
 @export_group("Map Database")
 @export var maps : Dictionary = {}
 
@@ -25,12 +28,13 @@ func _ready() -> void:
 
 func _cache_tile_map_layer():
 	for child in _map_instance.get_children():
-		if child is TileMapLayer:
+		print(child.name)
+		if child is TileMapLayer and child.name == terrain_layer_name:
 			_tile_map_layer = child
 			Logger.write("INFO", "TileMapLayer has been cached by map scene.")
-		else:
-			Logger.write("ERROR", "Map cannot locate TileMapLayer.")
-			push_error("Map cannot locate TileMapLayer")
+	if _tile_map_layer == null:
+		Logger.write("ERROR", "Map cannot locate TileMapLayer.")
+		push_error("Map cannot locate TileMapLayer")
 
 func _load_navigation():
 	Navigation.load_tile_map_layer(_tile_map_layer)

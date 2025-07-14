@@ -76,4 +76,4 @@ offset_bottom = 23.0
 text = "Client Scene"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(600, 350)
+position = Vector2(600, 400)
