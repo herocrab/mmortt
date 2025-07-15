@@ -1,8 +1,14 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://4hqkfj7opr0e"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://4hqkfj7opr0e"]
 
 [ext_resource type="Shader" uid="uid://dw0ld5knxf4vq" path="res://assets/shaders/caustic_base.tres" id="1_7j7w8"]
+[ext_resource type="Texture2D" uid="uid://dp40kw6lpwd3c" path="res://assets/textures/caustic_base.png" id="2_qqqul"]
 
 [resource]
 shader = ExtResource("1_7j7w8")
-shader_parameter/volumetric_color = Color(0.882634, 0, 1, 1)
+shader_parameter/Brightness = 0.75
+shader_parameter/Color = Color(1, 0, 0.946428, 1)
 shader_parameter/Scale = 1.25
+shader_parameter/Texture2DParameter = ExtResource("2_qqqul")
+shader_parameter/contrast = 1.0
+shader_parameter/cutoff = 0.75
+shader_parameter/edge = 7.0
