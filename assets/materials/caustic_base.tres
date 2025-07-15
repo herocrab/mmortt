@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://4hqkfj7opr0e"]
+
+[ext_resource type="Shader" uid="uid://dw0ld5knxf4vq" path="res://assets/shaders/caustic_base.tres" id="1_7j7w8"]
+
+[resource]
+shader = ExtResource("1_7j7w8")
+shader_parameter/volumetric_color = Color(0.882634, 0, 1, 1)
+shader_parameter/Scale = 1.25

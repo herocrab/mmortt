@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bhmse03oj4t64"]
 
 [ext_resource type="Texture2D" uid="uid://ca0pukttoliyf" path="res://assets/sprites/base_tile_set_100x100.png" id="1_4q83s"]
-[ext_resource type="Texture2D" uid="uid://cpbp175rjlij1" path="res://assets/sprites/base_tile_set_fog_100x100.png" id="2_idkkx"]
+[ext_resource type="Texture2D" uid="uid://cpbp175rjlij1" path="res://assets/sprites/base_tile_set_caustic_100x100.png" id="2_4q83s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y7h6b"]
 texture = ExtResource("1_4q83s")
@@ -29,7 +29,7 @@ texture_region_size = Vector2i(100, 100)
 4:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sboum"]
-texture = ExtResource("2_idkkx")
+texture = ExtResource("2_4q83s")
 separation = Vector2i(2, 2)
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
