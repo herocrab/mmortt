@@ -7,7 +7,7 @@
 shader = ExtResource("1_7j7w8")
 shader_parameter/Brightness = 0.75
 shader_parameter/Color = Color(1, 0, 0.946428, 1)
-shader_parameter/Scale = 1.25
+shader_parameter/Scale = 2.0
 shader_parameter/Texture2DParameter = ExtResource("2_qqqul")
 shader_parameter/contrast = 1.0
 shader_parameter/cutoff = 0.75
