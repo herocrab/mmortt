@@ -1,4 +1,66 @@
-[gd_resource type="TileSet" format=3 uid="uid://bhmse03oj4t64"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bhmse03oj4t64"]
+
+[ext_resource type="Texture2D" uid="uid://uwbx7okhahh" path="res://assets/sprites/caustic_sprite_sheet_100px.png" id="1_ipl50"]
+[ext_resource type="Texture2D" uid="uid://tdcd8qmcltbv" path="res://assets/sprites/cliff_sprite_sheet_100px.png" id="2_2q37i"]
+[ext_resource type="Texture2D" uid="uid://drgwab0ruav1d" path="res://assets/sprites/terrain_sprite_sheet_100px.png" id="3_ruhik"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yi76"]
+texture = ExtResource("1_ipl50")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ynjqx"]
+texture = ExtResource("2_2q37i")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4jq8"]
+texture = ExtResource("3_ruhik")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
 
 [resource]
 tile_size = Vector2i(100, 100)
+sources/0 = SubResource("TileSetAtlasSource_8yi76")
+sources/1 = SubResource("TileSetAtlasSource_ynjqx")
+sources/2 = SubResource("TileSetAtlasSource_b4jq8")

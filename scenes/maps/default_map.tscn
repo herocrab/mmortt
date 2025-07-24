@@ -15,7 +15,11 @@ occlusion_enabled = false
 collision_enabled = false
 navigation_enabled = false
 
-[node name="Terrain" type="TileMapLayer" parent="."]
+[node name="Terrain_1" type="TileMapLayer" parent="."]
+z_as_relative = false
+tile_set = ExtResource("1_un36d")
+
+[node name="Terrain_2" type="TileMapLayer" parent="."]
 z_as_relative = false
 tile_set = ExtResource("1_un36d")
 
@@ -27,7 +31,7 @@ tile_set = ExtResource("1_un36d")
 z_index = 2
 z_as_relative = false
 material = ExtResource("3_qut61")
-position = Vector2(16, 25)
+tile_map_data = PackedByteArray("AAAIAAMAAAADAAMAAAAIAAIAAAAAAAEAAAAJAAQAAAAAAAIAAAAHAAQAAAADAAIAAAAIAAQAAAACAAEAAAAJAAMAAAABAAEAAAAHAAMAAAADAAEAAAAHAAIAAAACAAIAAAAJAAIAAAABAAIAAAA=")
 tile_set = ExtResource("1_un36d")
 occlusion_enabled = false
 navigation_enabled = false
