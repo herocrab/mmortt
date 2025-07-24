@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drgwab0ruav1d"
-path="res://.godot/imported/terrain_sprite_sheet_100px.png-b452f423075b9e64cdc2c2b7f26651f3.ctex"
+uid="uid://u56n4qdchkyw"
+path="res://.godot/imported/cliff_sprite_sheet.png-c99a22f043d0ba0522f343695788c966.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/terrain_sprite_sheet_100px.png"
-dest_files=["res://.godot/imported/terrain_sprite_sheet_100px.png-b452f423075b9e64cdc2c2b7f26651f3.ctex"]
+source_file="res://assets/sprites/cliff_sprite_sheet.png"
+dest_files=["res://.godot/imported/cliff_sprite_sheet.png-c99a22f043d0ba0522f343695788c966.ctex"]
 
 [params]
 

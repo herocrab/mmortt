@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uwbx7okhahh"
-path="res://.godot/imported/caustic_sprite_sheet_100px.png-a69055743fa9bb037e54b35494136e02.ctex"
+uid="uid://bkkcipup37pcf"
+path="res://.godot/imported/caustic_sprite_sheet.png-54e265733f856cde27fbcc315a1fda0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/caustic_sprite_sheet_100px.png"
-dest_files=["res://.godot/imported/caustic_sprite_sheet_100px.png-a69055743fa9bb037e54b35494136e02.ctex"]
+source_file="res://assets/sprites/caustic_sprite_sheet.png"
+dest_files=["res://.godot/imported/caustic_sprite_sheet.png-54e265733f856cde27fbcc315a1fda0a.ctex"]
 
 [params]
 
