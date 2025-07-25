@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func _cache_tile_map_layer():
 	for child in _map_instance.get_children():
-		print(child.name)
+		#print(child.name)
 		if child is TileMapLayer and child.name == terrain_layer_name:
 			_tile_map_layer = child
 			Logger.write("INFO", "TileMapLayer has been cached by map scene.")

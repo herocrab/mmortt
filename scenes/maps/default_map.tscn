@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://b2kxec640twm4"]
+[gd_scene load_steps=5 format=4 uid="uid://b2kxec640twm4"]
 
 [ext_resource type="TileSet" uid="uid://cx647lsmdelm0" path="res://assets/tilesets/navigation_tile_set.tres" id="1_0hmxm"]
 [ext_resource type="TileSet" uid="uid://bhmse03oj4t64" path="res://assets/tilesets/tile_set.tres" id="1_un36d"]
 [ext_resource type="Material" uid="uid://4hqkfj7opr0e" path="res://assets/materials/caustic_base.tres" id="3_qut61"]
+[ext_resource type="Script" uid="uid://q3tr818voa0w" path="res://src/utility/world_tile_map_layer.gd" id="4_xgynf"]
 
 [node name="DefaultMap" type="Node2D"]
 
@@ -39,3 +40,5 @@ tile_map_data = PackedByteArray("AAAIAAMABQADAAMAAAAIAAQABQACAAEAAAAHAAIABQACAAI
 tile_set = ExtResource("1_un36d")
 occlusion_enabled = false
 navigation_enabled = false
+script = ExtResource("4_xgynf")
+metadata/_custom_type_script = "uid://q3tr818voa0w"
