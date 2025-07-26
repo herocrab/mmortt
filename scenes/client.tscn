@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://qtfa2jeyt6ig"]
+[gd_scene load_steps=15 format=3 uid="uid://qtfa2jeyt6ig"]
 
 [ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="1_5f806"]
+[ext_resource type="Script" uid="uid://fm3wulr6jde2" path="res://src/extensions/viewport_attendant.gd" id="1_u5oxf"]
 [ext_resource type="PackedScene" uid="uid://dwgrpaiow856e" path="res://scenes/map.tscn" id="2_1t5vp"]
+[ext_resource type="Script" uid="uid://byosyhpcwf7v1" path="res://src/extensions/camera_attendant.gd" id="2_svewj"]
 [ext_resource type="Script" uid="uid://c64macdydqsqj" path="res://src/utility/initital_state.gd" id="2_t0ykn"]
 [ext_resource type="Script" uid="uid://c2705tma4amkj" path="res://src/network/connect.gd" id="3_da3od"]
 [ext_resource type="Script" uid="uid://c568cillbnh17" path="res://src/network/client/state/join.gd" id="4_dipmf"]
@@ -14,6 +16,16 @@
 [ext_resource type="Script" uid="uid://c5h1xsc7fbift" path="res://src/network/client/state/result.gd" id="12_u5oxf"]
 
 [node name="Client" type="Node2D"]
+
+[node name="ViewportAttendant" type="Node2D" parent="."]
+script = ExtResource("1_u5oxf")
+
+[node name="CameraAttendant" type="Node" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("2_svewj")
+camera = NodePath("../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(600, 400)
 
 [node name="UnitDb" parent="." instance=ExtResource("7_dipmf")]
 
@@ -74,6 +86,3 @@ metadata/_custom_type_script = "uid://c5h1xsc7fbift"
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Client Scene"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(600, 400)
