@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1x7owff4ot1d"
-path="res://.godot/imported/whtie_noise_base.png-36eac6a3e63f5cbdfd9b1c4ce989d952.ctex"
+uid="uid://b2npvur6g63ud"
+path="res://.godot/imported/shader_params.png-271c474500c303b189551b4e548e3ae0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/whtie_noise_base.png"
-dest_files=["res://.godot/imported/whtie_noise_base.png-36eac6a3e63f5cbdfd9b1c4ce989d952.ctex"]
+source_file="res://assets/sprites/shader_params.png"
+dest_files=["res://.godot/imported/shader_params.png-271c474500c303b189551b4e548e3ae0.ctex"]
 
 [params]
 
