@@ -1,9 +1,23 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://bhmse03oj4t64"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://bhmse03oj4t64"]
 
 [ext_resource type="Texture2D" uid="uid://bkkcipup37pcf" path="res://assets/sprites/caustic_sprite_sheet.png" id="1_ruhik"]
+[ext_resource type="Texture2D" uid="uid://kle1pjmpmiwt" path="res://assets/sprites/shadow_sprite_sheet.png" id="1_ynjqx"]
 [ext_resource type="Texture2D" uid="uid://u56n4qdchkyw" path="res://assets/sprites/cliff_sprite_sheet.png" id="2_ynjqx"]
 [ext_resource type="Texture2D" uid="uid://bksdwjqebpunh" path="res://assets/sprites/terrain_1_sprite_sheet.png" id="3_b4jq8"]
 [ext_resource type="Texture2D" uid="uid://cm0o03jqsmwj6" path="res://assets/sprites/terrain_2_sprite_sheet.png" id="4_caqru"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4jq8"]
+texture = ExtResource("1_ynjqx")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8cnln"]
 texture = ExtResource("1_ruhik")
@@ -75,3 +89,4 @@ sources/5 = SubResource("TileSetAtlasSource_8cnln")
 sources/6 = SubResource("TileSetAtlasSource_sah8x")
 sources/7 = SubResource("TileSetAtlasSource_fyd2g")
 sources/8 = SubResource("TileSetAtlasSource_oa14l")
+sources/0 = SubResource("TileSetAtlasSource_b4jq8")
