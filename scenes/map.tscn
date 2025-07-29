@@ -6,7 +6,7 @@
 [node name="Map" type="Node2D"]
 
 [node name="Map" type="Node2D" parent="."]
-z_index = 1
+z_index = 4
 z_as_relative = false
 script = ExtResource("1_ry644")
 start_pos = Vector2i(0, 0)

@@ -30,18 +30,8 @@ tile_set = ExtResource("1_un36d")
 script = ExtResource("4_xgynf")
 metadata/_custom_type_script = "uid://dfrriyr7a3h3f"
 
-[node name="Terrain_2" type="TileMapLayer" parent="."]
-z_index = 2
-z_as_relative = false
-material = ExtResource("5_8yeuo")
-scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAADAAMACAACAAMAAAAEAAMACAADAAEAAAACAAMACAABAAEAAAACAAIACAABAAAAAAADAAQACAACAAMAAAACAAUACAACAAMAAAAEAAQACAADAAIAAAACAAQACAAAAAIAAAABAAQACAABAAAAAAABAAUACAABAAEAAAAFAAQACAACAAAAAAABAAYACAAAAAAAAAACAAYACAAAAAEAAAADAAYACAADAAAAAAADAAUACAACAAIAAAAEAAUACAAAAAEAAAAFAAUACAADAAAAAAADAAIACAAAAAIAAAADAAEACAABAAAAAAAFAAEACAACAAAAAAAEAAEACAACAAEAAAAEAAIACAACAAIAAAAFAAIACAADAAAAAAA=")
-tile_set = ExtResource("1_un36d")
-script = ExtResource("4_xgynf")
-metadata/_custom_type_script = "uid://dfrriyr7a3h3f"
-
 [node name="Cliff_Shadow" type="TileMapLayer" parent="."]
-z_index = 3
+z_index = 2
 z_as_relative = false
 material = ExtResource("3_8xldf")
 scale = Vector2(0.5, 0.5)
@@ -49,11 +39,21 @@ tile_map_data = PackedByteArray("AAACAAMAAAABAAEAAAACAAIAAAABAAAAAAAHAAIAAAACAAI
 tile_set = ExtResource("1_un36d")
 
 [node name="Cliff" type="TileMapLayer" parent="."]
-z_index = 4
+z_index = 3
 z_as_relative = false
 scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAAJAAIABgABAAIAAAAIAAIABgAAAAEAAAAHAAIABgACAAIAAAADAAUABgACAAIAAAAEAAUABgAAAAEAAAACAAYABgAAAAEAAAAFAAUABgADAAAAAAADAAYABgADAAAAAAABAAYABgAAAAAAAAAEAAIABgACAAIAAAAFAAIABgADAAAAAAA=")
 tile_set = ExtResource("1_un36d")
+
+[node name="Terrain_2" type="TileMapLayer" parent="."]
+z_index = 10
+z_as_relative = false
+material = ExtResource("5_8yeuo")
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAADAAMACAACAAMAAAAEAAMACAADAAEAAAACAAMACAABAAEAAAACAAIACAABAAAAAAADAAQACAACAAMAAAACAAUACAACAAMAAAAEAAQACAADAAIAAAACAAQACAAAAAIAAAABAAQACAABAAAAAAABAAUACAABAAEAAAAFAAQACAACAAAAAAABAAYACAAAAAAAAAACAAYACAAAAAEAAAADAAYACAADAAAAAAADAAUACAACAAIAAAAEAAUACAAAAAEAAAAFAAUACAADAAAAAAADAAIACAAAAAIAAAADAAEACAABAAAAAAAFAAEACAACAAAAAAAEAAEACAACAAEAAAAEAAIACAACAAIAAAAFAAIACAADAAAAAAA=")
+tile_set = ExtResource("1_un36d")
+script = ExtResource("4_xgynf")
+metadata/_custom_type_script = "uid://dfrriyr7a3h3f"
 
 [node name="Caustic" type="TileMapLayer" parent="."]
 z_index = 5
