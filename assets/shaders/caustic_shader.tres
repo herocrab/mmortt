@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=63 format=3 uid="uid://dw0ld5knxf4vq"]
 
-[ext_resource type="Texture2D" uid="uid://dp40kw6lpwd3c" path="res://assets/textures/caustic_noise_texture.png" id="1_qyri7"]
+[ext_resource type="Texture2D" uid="uid://dp40kw6lpwd3c" path="res://assets/textures/caustic_1_noise_texture.png" id="1_qyri7"]
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_h5ise"]
 default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
@@ -525,7 +525,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(3661.07, -330.774)
+graph_offset = Vector2(71.6866, 247.053)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(5400, 80)
