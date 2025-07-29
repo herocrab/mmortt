@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kle1pjmpmiwt"
-path="res://.godot/imported/shadow_sprite_sheet.png-7735f3d7f562c492a981531601f385bb.ctex"
+uid="uid://b5wve83rylxjm"
+path="res://.godot/imported/output-onlinetools.png-e9a283f7a21c032795eed451ec2779c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/shadow_sprite_sheet.png"
-dest_files=["res://.godot/imported/shadow_sprite_sheet.png-7735f3d7f562c492a981531601f385bb.ctex"]
+source_file="res://assets/sprites/output-onlinetools.png"
+dest_files=["res://.godot/imported/output-onlinetools.png-e9a283f7a21c032795eed451ec2779c3.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bg74hrffncexv"]
 
-[ext_resource type="Shader" uid="uid://s6tsvr7a28le" path="res://assets/shaders/shadow_base.tres" id="1_r14cc"]
+[ext_resource type="Shader" uid="uid://s6tsvr7a28le" path="res://assets/shaders/shadow_shader.tres" id="1_r14cc"]
 
 [resource]
 shader = ExtResource("1_r14cc")

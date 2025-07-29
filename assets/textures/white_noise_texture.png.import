@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pgk53srg863c"
-path="res://.godot/imported/walkable.png-a4cc559ac89d1c07708378eda94c0546.ctex"
+uid="uid://b1x7owff4ot1d"
+path="res://.godot/imported/white_noise_texture.png-400ecc83cf083cc06b8f2062285a665d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/walkable.png"
-dest_files=["res://.godot/imported/walkable.png-a4cc559ac89d1c07708378eda94c0546.ctex"]
+source_file="res://assets/textures/white_noise_texture.png"
+dest_files=["res://.godot/imported/white_noise_texture.png-400ecc83cf083cc06b8f2062285a665d.ctex"]
 
 [params]
 

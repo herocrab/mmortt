@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=64 format=3 uid="uid://dw0ld5knxf4vq"]
 
-[ext_resource type="Texture2D" uid="uid://dp40kw6lpwd3c" path="res://assets/textures/caustic_base.png" id="1_h5ise"]
+[ext_resource type="Texture2D" uid="uid://dp40kw6lpwd3c" path="res://assets/textures/caustic_noise_texture.png" id="1_qyri7"]
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_h5ise"]
 default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
@@ -135,7 +135,7 @@ parameter_name = "suds_scale"
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_phkte"]
 expanded_output_ports = [0]
 source = 5
-texture = ExtResource("1_h5ise")
+texture = ExtResource("1_qyri7")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeCompare" id="VisualShaderNodeCompare_h5ise"]
@@ -532,7 +532,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(409.097, 70.7747)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(5000, 100)
