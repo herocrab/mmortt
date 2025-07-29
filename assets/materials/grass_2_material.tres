@@ -1,13 +1,21 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dnoda1o8perot"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dnoda1o8perot"]
 
 [ext_resource type="Shader" uid="uid://cs2p6mlpyitp" path="res://assets/shaders/terrain_shader.tres" id="1_ovydc"]
-[ext_resource type="Texture2D" uid="uid://doyp1sg8i7av8" path="res://assets/textures/grass_texture.png" id="2_arcug"]
+[ext_resource type="Texture2D" uid="uid://doyp1sg8i7av8" path="res://assets/textures/grass_texture.png" id="3_arcug"]
+[ext_resource type="Texture2D" uid="uid://cfi0bcixwcs3" path="res://assets/textures/dirt_texture.png" id="3_fjvuc"]
 
 [resource]
 shader = ExtResource("1_ovydc")
-shader_parameter/brightness = 1.3
+shader_parameter/dirt_brightness = 1.0
+shader_parameter/dirt_texture_scale = 10.0
 shader_parameter/viewport_size = Vector2(1200, 800)
 shader_parameter/camera_world_position = Vector2(600, 400)
-shader_parameter/terrain_scale = 0.4
-shader_parameter/terrain_texture = ExtResource("2_arcug")
-shader_parameter/contrast = 1.05
+shader_parameter/dirt_texture = ExtResource("3_fjvuc")
+shader_parameter/dirt_contrast = 1.0
+shader_parameter/grass_brightness = 1.1
+shader_parameter/grass_texture_scale = 0.65
+shader_parameter/grass_texture = ExtResource("3_arcug")
+shader_parameter/grass_contrast = 1.05
+shader_parameter/blend_brightness = 1.0
+shader_parameter/blend_texture_scale = 1.0
+shader_parameter/blend_contrast = 1.0
